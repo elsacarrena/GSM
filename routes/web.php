@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -45,7 +45,7 @@ Route::get('/home', function () {
   Route:: post('registrer', [RegisterController::class, 'registrer'])->name('registrer');
 
 
-  Auth::routes();
+
 
 
 Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
@@ -108,10 +108,10 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
     Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home');
   });
 
-  Auth::routes();
+
 
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+  Auth::routes();
 
 
 
