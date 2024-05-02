@@ -100,50 +100,9 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
   });
 
 
+
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-  Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
-
-});
-Route::prefix('superieur')->middleware(['auth', 'superieur'])->group(function () {
-    Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home');
-
-});
-Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(function () {
-  Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home');
-
-});
-Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
-    Route::get('/employe/home', [App\Http\Controllers\HomeController::class, 'employeHome'])->name('employe.home');
-  });
-//   Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
-//     Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home');
-    Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
-        // Page d'accueil des stagiaires
-        Route::get('/home', [StagiaireController::class, 'index'])->name('home');
-
-        // Affichage de la liste des stagiaires
-        Route::get('/stagiaires/create', [StagiaireController::class, 'create'])->name('stagiaires.create');
-
-        // Ajout d'un nouveau stagiaire
-        Route::post('/stagiaires', [StagiaireController::class, 'store'])->name('stagiaires.store');
-
-        // Formulaire pour modifier les informations d'un stagiaire
-        Route::get('/stagiaires/{stagiaire}/edit', [StagiaireController::class, 'edit'])->name('stagiaires.edit');
-
-        // Mise à jour des informations d'un stagiaire
-        Route::put('/stagiaires/{stagiaire}',  [StagiaireController::class, 'update'])->name('stagiaires.update');
-
-        // Suppression d'un stagiaire
-        Route::delete('/stagiaires/{stagiaire}', [StagiaireController::class, 'destroy'])->name('stagiaires.destroy');
-    });
-
-    Auth::routes();
-
-
+  Auth::routes();
 
 
 
