@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class Chefservice
@@ -15,9 +16,26 @@ class Chefservice
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->chefservice==3){
+        if(!Auth::check()){
+            return redirect()->route('login');
+        }
+        if(auth()->user()->is_admin==3){
         return $next($request);
-        }else{
+        }
+        if(auth()->user()->is_admin==1){
+            return redirect()->route('admin.home');
+        }
+        if(auth()->user()->is_admin==2){
+            return redirect()->route('superieur.home');
+        }
+        if(auth()->user()->is_admin==4){
+            return redirect()->route('employe.home');
+        }
+        if(auth()->user()->is_admin==5){
+            return redirect()->route('stagiaire.home');
+        }
+
+        else{
             return redirect ('home')->with('error', "Vous n\'avez pas le droit de chef de service");
         }
     }

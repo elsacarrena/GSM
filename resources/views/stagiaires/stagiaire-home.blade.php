@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h3>Bienvenue sur la page des Chefs Services</h3>
+                    <h3>Bienvenue sur la page des stagiaires</h3>
                     {{ __('Vous etes connecté!') }}
 
                 </div>
@@ -21,4 +21,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

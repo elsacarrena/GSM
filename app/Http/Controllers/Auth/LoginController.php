@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
 
     /**
      * Create a new controller instance.
@@ -52,50 +52,40 @@ class LoginController extends Controller
             'password' =>'required',
         ]);
         if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
-            if(auth()->user()->is_admin==1){
-                return redirect()->route('admin.home');
-            }else{
-                return redirect()->route('home');
+            // dd(auth()->user()->is_admin);
+            $user_role=auth()->user()->is_admin;
+            switch($user_role){
+                case 1:
+                    return redirect()->route('admin.home');
+                    break;
+                case 2:
+                    return redirect()->route('superieur.home');
+                    break;
+                case 3:
+                    return redirect()->route('chefservice.home');
+                    break;
+                case 4:
+                    return redirect()->route('employe.home');
+                    break;
+                case 5:
+                    return redirect()->route('stagiaire.home');
+                    break;
+                default:
+                   
+                   return redirect()->route('home');
             }
+
+
         }else{
             return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
         }
-        if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
-            if(auth()->user()->superieur==2){
-                return redirect()->route('superieur.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
-        }
-        if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
-            if(auth()->user()->chefservice==3){
-                return redirect()->route('chefservice.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
-        }
-        if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
-            if(auth()->user()->employe==4){
-                return redirect()->route('employe.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
-        }
-        if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
-            if(auth()->user()->stagiaire==5){
-                return redirect()->route('stagiaire.home');
-            }else{
-                return redirect()->route('home');
-            }
-        }else{
-            return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
-        }
+
+
+
+
+
+
+
 
     }
     public function logout(Request $request)
