@@ -32,14 +32,13 @@ class RegisteredUser extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Inscription sur mon super site')
-
-                    ->line('Votre compte XXX a bien été créé, mais il doit etre confirmé, merci de cliquer sur le lien suivant.')
-                    ->action('Confirmer mon compte', url("/confirm/{$notifiable->id}/ {$notifiable->confirmation_token}"))
-                    ->line('Si vous n\'etes pas à l\'origine de cette demande veuillez ignorer ce message !');
+            ->subject('Inscription sur Personnel_GSM.')
+            ->line('Votre compte a été bien créé. Merci de cliquer sur le lien pour l\'activer.')
+            ->action('Activer mon compte', url("/confirm/{$notifiable->id}/{$notifiable->confirmation_token}"))
+            ->line('Merci d\'utiliser notre application ! Nous sommes impatients de vous voir bientôt.');
     }
 
     /**

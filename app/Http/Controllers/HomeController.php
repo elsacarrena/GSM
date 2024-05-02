@@ -29,21 +29,21 @@ class HomeController extends Controller
         return view('admin-home');
     }
     public function superieurHome(){
-        return view('superieur-home');
+        return view('superieur/superieur-home');
     }
     public function chefserviceHome(){
-        return view('chefservice-home');
+        return view('chef_service/chefservice-home');
     }
     public function employeHome()
 {
     $role = 'employe';
-    return view('personnel.create', compact('role'));
+    return view('employe/employe-home', compact('role'));
 }
 
 public function stagiaireHome()
 {
     $role = 'stagiaire';
-    return view('personnel.create', compact('role'));
+    return view('stagiaires/stagiaire-home', compact('role'));
 }
 
     // public function employeHome(){

@@ -22,10 +22,6 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
-        'superieur',
-        'chefservice',
-        'employe',
-        'stagiaire',
         'confirmation_token'
 
     ];

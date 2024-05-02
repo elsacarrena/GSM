@@ -41,7 +41,7 @@ Route::get('/home', function () {
 
 
   Route::get('/register', function(){
-    return view('registrer');
+    return view('register');
   })->name('register');
   Route:: post('registrer', [RegisterController::class, 'registrer'])->name('registrer');
 
@@ -60,8 +60,18 @@ Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
        Route::get('/personnel/create', [PersonnelController::class, 'create'])->name('personnel.create');
        // Routes pour les vues spécifiques des employés et des stagiaires
        Route::post('/personnel/store', [PersonnelController::class, 'store'])->name('personnel.store');
+<<<<<<< HEAD
 
 
+=======
+    //    Route::get('/employe', function () {
+    //     return view('/employe/home');
+    //     })->name('employe.home');
+
+    // Route::get('/stagiaire/home', function () {
+    //     return view('stagiaire/home');
+    // })->name('stagiaire.home');
+>>>>>>> bc0b862602472d9fa8a25254f11b139298523e23
 
       // Afficher le formulaire de modification d'un étudiant
        Route::get('/personnel/{id}/edit', [PersonnelController::class, 'edit'])->name('personnel.edit');
@@ -75,14 +85,29 @@ Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
   });
 
 
+  Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+
+});
+Route::prefix('superieur')->middleware(['auth', 'superieur'])->group(function () {
+    Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home');
+
+});
+Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(function () {
+  Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home');
+
+});
+Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
+    Route::get('/employe/home', [App\Http\Controllers\HomeController::class, 'employeHome'])->name('employe.home');
+  });
+  Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
+    Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home');
+  });
+
   Auth::routes();
 
   Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-  Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-  Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home')->middleware('superieur');
-  Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home')->middleware('chefservice');
-  //Route::get('/employe/home', [App\Http\Controllers\HomeController::class, 'employeHome'])->name('employe.home')->middleware('employe');
-  //Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home')->middleware('stagiaire');
+
 
 
   Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
