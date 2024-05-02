@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Personnel;
-
+use App\Models\Stagiaires;
 use Illuminate\Http\Request;
+use App\Http\Middleware\Stagiaire;
 
-class PersonnelController extends Controller
+class stagiaireController extends Controller
 {
     public function create(){
-        return view('personnel/create');
+        return view('stagiaires/create');
     }
     public function index()
     {
-        $personnel = Personnel::all();
-        return view('personnel/index', compact('personnel'));
+        $stagiaire =Stagiaire::all();
+        return view('stagiaires/index', compact('stagiaire'));
 
     }
 
@@ -31,7 +31,7 @@ class PersonnelController extends Controller
         // Vérifier si un étudiant avec le même numéro de téléphone existe déjà
 
         // Créer un nouvel étudiant s'il n'existe pas déjà
-                    Personnel::create([
+                     Stagiaire::create([
                         'nom' => $request ->nom,
                         'numero' => $request ->numero,
                         'domaine' => $request ->domaine,
@@ -55,8 +55,8 @@ class PersonnelController extends Controller
 
     // Méthode pour afficher le formulaire de modification d'un étudiant
     public function edit($id){
-        $personnel = Personnel::findOrFail($id);
-        return view('personnel.edit', compact('personnel'));
+        $stagiaire =Stagiaire::findOrFail($id);
+        return view('stagiaires.edit', compact('stagiaire'));
     }
 
 
@@ -75,13 +75,13 @@ class PersonnelController extends Controller
         ]);
 
         // Recherche du personnel à mettre à jour
-        $personnel = Personnel::findOrFail($id);
+        $personnel = Stagiaire::findOrFail($id);
         // Mise à jour des informations de l'étudiant
         $personnel->update($request->all());
 
         // Redirection vers la liste des personnels avec un message de succès
         // return redirect()->route('personnel/index')->with('success', 'Membre modifié avec succès');
-        return redirect()->route('personnel.index')->with('success', 'Membre ajouté avec succès!');
+        return redirect()->route('stagiaire.index')->with('success', 'Membre ajouté avec succès!');
 
     }
 
@@ -90,13 +90,14 @@ class PersonnelController extends Controller
     {
 
         // Recherche de l'étudiant à supprimer
-        $personnel = Personnel::findOrFail($id);
+        $personnel =Stagiaire::findOrFail($id);
         // Suppression de l'étudiant
         $personnel->delete();
 
         // Redirection vers la liste du personnel avec un message de succès
         // return redirect()->route('personnel/index')->with('success', 'Membre supprimé avec succès');
-        return redirect()->route('personnel.index')->with('success', 'Membre supprimé avec succès');
+        return redirect()->route('stagiaires.index')->with('success', 'Membre supprimé avec succès');
 
     }
 }
+

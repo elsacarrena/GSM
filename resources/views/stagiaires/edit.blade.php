@@ -4,7 +4,7 @@
     <div class="container">
 
         <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
-        <form action="{{ route('personnel.update', $personnel->id) }}" method="POST">
+        <form action="{{ route('stagiaire.update', $personnel->id) }}" method="POST">
             @csrf
             @method('PUT')
 

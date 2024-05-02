@@ -12,21 +12,15 @@
                     <thead>
                         <tr>
                             <th>id</th>
-                            <th></th>
-                            <th>Votre nom </th>
-                            <th>Votre numéro</th>
-                            <th> Votre domaine de travail</th>
-                            <th> Votre groupe sanguin</th>
-                            <th>Votre maladie spécifique </th>
-                            <th>Votre localisation</th>
-                            <th>Nom de votre père</th>
-                            <th>Nom de votre mère </th>
-                            <th>Numéro de votre père</th>
-                            <th>Numéro de votre mère</th>
-                            <th>Numéro à contacter en cas d'urgence</th>
+                            <th>Nom</th>
+                            <th>numero</th>
+                            <th>domaine</th>
+                             <th>localisation</th>
+                             <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         @foreach ($personnel as $person)
                         <tr>
@@ -34,17 +28,11 @@
                             <td>{{ $person->nom }}</td>
                             <td>{{ $person->numero }}</td>
                             <td>{{ $person->domaine }}</td>
-                            <td>{{ $person->groupe_sanguin }}</td>
-                            <td>{{ $person->maladie }}</td>
                             <td>{{ $person->localisation }}</td>
-                            <td>{{ $person->nom_pere }}</td>
-                            <td>{{ $person->nom_mere }}</td>
-                            <td>{{ $person->numero_pere }}</td>
-                            <td>{{ $person->numero_mere }}</td>
                             <td>{{ $person->numero_urgence }}</td>
                             <td>
                                 <a href="{{ route('personnel.edit', $person->id) }}" class="btn btn-primary btn-sm">Modifier un membre</a>
-                                <form action="{{ route('personnel.destroy', $person->id) }}" method="POST" style="display: inline;">
+                                <form action="{{ route('personnel.destroy', $person->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Supprimer un membre</button>
@@ -58,4 +46,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function confirmDelete() {
+        return confirm("Êtes-vous sûr de vouloir supprimer ce membre ?");
+    }
+</script>
 @endsection

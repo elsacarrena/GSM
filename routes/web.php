@@ -1,8 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonnelController;
-use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\stagiaireController;
 
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\EnregistrerController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -50,32 +51,17 @@ Route::get('/home', function () {
 
 Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
   Route::middleware(['auth'])->group(function () {
-//     // web.php
-//     Route::get('/personnel', [PersonnelController::class, 'create'])->name('personnel.index');
-//     Route::get('/departements', [DepartementController::class, 'create'])->name('departements.index');
-
-
 
 
      Route::get('/personnel/index', [PersonnelController::class, 'index'])->name('personnel.index');
 
-    // Routes pour les étudiants
-     //Route::resource('personnel', PersonnelController::class)->except('index');
 
        // Afficher le formulaire pour créer un nouvel étudiant
        Route::get('/personnel/create', [PersonnelController::class, 'create'])->name('personnel.create');
        // Routes pour les vues spécifiques des employés et des stagiaires
-
-
-      // Stocker les données d'un nouvel étudiant
        Route::post('/personnel/store', [PersonnelController::class, 'store'])->name('personnel.store');
-       Route::get('/employe', function () {
-        return view('/employe/home');
-        })->name('employe.home');
 
-    Route::get('/stagiaire/home', function () {
-        return view('stagiaire/home');
-    })->name('stagiaire.home');
+
 
       // Afficher le formulaire de modification d'un étudiant
        Route::get('/personnel/{id}/edit', [PersonnelController::class, 'edit'])->name('personnel.edit');
@@ -97,6 +83,51 @@ Route::get('/confirm/{id}/{token}', 'Auth\RegisterController@confirm');
   Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home')->middleware('chefservice');
   //Route::get('/employe/home', [App\Http\Controllers\HomeController::class, 'employeHome'])->name('employe.home')->middleware('employe');
   //Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home')->middleware('stagiaire');
+
+
+  Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+
+});
+Route::prefix('superieur')->middleware(['auth', 'superieur'])->group(function () {
+    Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home');
+
+});
+Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(function () {
+  Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home');
+
+});
+Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
+    Route::get('/employe/home', [App\Http\Controllers\HomeController::class, 'employeHome'])->name('employe.home');
+  });
+//   Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
+//     Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home');
+    Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
+        // Page d'accueil des stagiaires
+        Route::get('/home', [StagiaireController::class, 'index'])->name('home');
+
+        // Affichage de la liste des stagiaires
+        Route::get('/stagiaires/create', [StagiaireController::class, 'create'])->name('stagiaires.create');
+
+        // Ajout d'un nouveau stagiaire
+        Route::post('/stagiaires', [StagiaireController::class, 'store'])->name('stagiaires.store');
+
+        // Formulaire pour modifier les informations d'un stagiaire
+        Route::get('/stagiaires/{stagiaire}/edit', [StagiaireController::class, 'edit'])->name('stagiaires.edit');
+
+        // Mise à jour des informations d'un stagiaire
+        Route::put('/stagiaires/{stagiaire}',  [StagiaireController::class, 'update'])->name('stagiaires.update');
+
+        // Suppression d'un stagiaire
+        Route::delete('/stagiaires/{stagiaire}', [StagiaireController::class, 'destroy'])->name('stagiaires.destroy');
+    });
+
+   
+
+
+
+
+
 
 
 

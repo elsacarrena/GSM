@@ -13,19 +13,11 @@ return new class extends Migration
     {
         Schema::create('personnel', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id')->default(0)->change();
             $table->string('nom');
             $table->string('numero');
             $table->string('domaine');
-            $table->string('groupe_sanguin');
-            $table->string('maladie');
             $table->string('localisation');
-            $table->string('nom_pere');
-            $table->string('nom_mere');
-            $table->string('numero_pere');
-            $table->string('numero_mere');
             $table->string('numero_urgence');
-            $table->foreign('id')->references('id')->on('users');
 
             $table->timestamps();
         });
