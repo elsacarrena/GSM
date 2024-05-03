@@ -37,7 +37,17 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+                        </li>
+                    @endif
+
+                             @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+                                </li>
+                            @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -52,7 +62,17 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+
+
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('chef_service.index') }}">
+                                        {{ __('Ajouter un  chef de service') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('chef_service.index') }}">
+                                        {{ __('Liste des chefs services') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -62,8 +82,10 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
 
+
+                                </div>
+                            </li>
                         @endguest
                     </ul>
                 </div>
