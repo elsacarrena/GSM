@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Stagiaires extends Model
 {
-    protected $table = 'stagiaires';
     use HasFactory;
+
     protected $fillable = [
         'nom',
         'numero',

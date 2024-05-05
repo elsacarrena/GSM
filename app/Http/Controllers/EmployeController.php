@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Employes;
+use App\Models\Employe;
 use Illuminate\Http\Request;
 
 class EmployeController extends Controller
 {
- // Ajout du middleware 'employe' au constructeur
+    // Ajout du middleware 'employe' au constructeur
  public function __construct()
  {
      $this->middleware('employe');
@@ -19,7 +18,7 @@ class EmployeController extends Controller
 
  public function index()
  {
-     $employes = Employes::all(); // Utilisation de Employes::all() pour récupérer tous les employés
+     $employes = Employe::all(); // Utilisation de Employes::all() pour récupérer tous les employés
      return view('employe.index', compact('employes'));
  }
 
@@ -33,7 +32,7 @@ class EmployeController extends Controller
          'numero_urgence' => 'required|string',
      ]);
 
-     Employes::create([ // Utilisation de Employes::create() pour créer un nouvel employé
+     Employe::create([ // Utilisation de Employes::create() pour créer un nouvel employé
          'nom' => $request->nom,
          'numero' => $request->numero,
          'domaine' => $request->domaine,
@@ -46,7 +45,7 @@ class EmployeController extends Controller
 
  public function edit($id)
  {
-     $employe = Employes::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
+     $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
      return view('employe.edit', compact('employe'));
  }
 
@@ -60,19 +59,18 @@ class EmployeController extends Controller
          'numero_urgence' => 'required|string',
      ]);
 
-     $employe = Employes::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
+     $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
      $employe->update($request->all());
 
-     return redirect()->route('employe.index')->with('success', 'Membre modifié avec succès!');
+     return redirect()->route('employe.index')->with('success', 'Employé modifié avec succès!');
  }
 
  public function destroy($id)
  {
-     $employe = Employes::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
+     $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
      $employe->delete();
 
-     return redirect()->route('employe.index')->with('success', 'Membre supprimé avec succès');
+     return redirect()->route('employe.index')->with('success', 'Employé supprimé avec succès');
  }
 }
-
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.chefservice')
 
 @section('content')
 <div class="container">
@@ -8,48 +8,47 @@
             <div class="card-header">Liste des chefs de service</div>
 
             <div class="card-body">
-                <link href="{{ asset('css/index_chefservice.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/index.css') }}" rel="stylesheet">
                 <a href="{{ route('chef_service.create') }}" class="btn btn-primary">Ajouter un chef de service</a>
+
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
                     </div>
                 @endif
                 <hr>
-                <div class="table-container">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>id</th>
                             <th>Nom</th>
-                            <th>Numéro</th>
-                            <th>Domaine</th>
-                            <th>Localisation</th>
-                            <th>Numéro durgence</th>
+                            <th>numero</th>
+                            <th>domaine</th>
+                             <th>localisation</th>
+                             <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($chefs as $chef)
+                        @foreach ($chefservice as $chefservices)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $chef->nom }}</td>
-                                <td>{{ $chef->numero }}</td>
-                                <td>{{ $chef->domaine }}</td>
-                                <td>{{ $chef->localisation }}</td>
-                                <td>{{ $chef->numero_urgence }}</td>
+                                <td>{{ $chefservices->nom}}</td>
+                                <td>{{ $chefservices->numero}}</td>
+                                <td>{{ $chefservices->domaine}}</td>
+                                 <td>{{ $chefservices->localisation}}</td>
+                                 <td>{{ $chefservices->numero_urgence }}</td>
                                 <td>
-                                    <a href="{{ route('chef_service.edit', $chef) }}" class="btn btn-primary btn-sm">Modifier</a>
-                                    <form action="{{ route('chef_service.destroy', $chef->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                    <a href="{{ route('chef_service.edit', $chefservices) }}" class="btn btn-primary btn-sm">Modifier un  chef de service</a>
+                                    <form action="{{route('chef_service.destroy', $chefservices ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer un chef de service</button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-                </div>
                 </table>
             </div>
         </div>
@@ -58,7 +57,7 @@
 
 <script>
     function confirmDelete() {
-        return confirm("Êtes-vous sûr de vouloir supprimer ce chef de service ?");
+        return confirm("Êtes-vous sûr de vouloir supprimer cet chef de service ?");
     }
 </script>
 

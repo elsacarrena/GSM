@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Chefservice extends Model
+class Employe extends Model
 {
     use HasFactory;
 
@@ -16,5 +16,7 @@ class Chefservice extends Model
         'domaine',
         'localisation',
         'numero_urgence',
+
+
     ];
 }

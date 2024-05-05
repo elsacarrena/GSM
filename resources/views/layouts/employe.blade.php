@@ -37,7 +37,11 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            
+                             @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+                                </li>
+                            @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -53,6 +57,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('employe.index') }}">
+                                        {{ __('Liste des employés') }}
+                                    </a>
+
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -64,6 +74,16 @@
                                     </form>
                                 </div>
 
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="">
+                                        {{ __('Mon profil') }}
+                                    </a>
+
+
+                                </div>
+
+
+                            </li>
                         @endguest
                     </ul>
                 </div>

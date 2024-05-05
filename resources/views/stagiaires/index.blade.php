@@ -1,5 +1,4 @@
-
-@extends('layouts.app')
+@extends('layouts.stagiaire')
 
 @section('content')
 <div class="container">
@@ -24,27 +23,36 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
-                             <th>localisation</th>
+                            <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($stagiaires as $stagiaire)
+                        @foreach ($stagiaires as $stagiaires)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $stagiaire->nom}}</td>
-                                <td>{{ $stagiaire->numero}}</td>
-                                <td>{{ $stagiaire->domaine}}</td>
-                                 <td>{{ $stagiaire->localisation}}</td>
-                                 <td>{{ $stagiaire->numero_urgence }}</td>
+                                <td>{{ $stagiaires->nom}}</td>
+                                <td>{{ $stagiaires->numero}}</td>
+                                <td>{{ $stagiaires->domaine}}</td>
+                                 <td>{{ $stagiaires->localisation}}</td>
+                                 <td>{{ $stagiaires->numero_urgence }}</td>
                                 <td>
-                                    <a href="{{ route('stagiaires.edit', $stagiaire) }}" class="btn btn-primary btn-sm">Modifier</a>
-                                    <form action="{{route('stagiaires.destroy', $stagiaire->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                    <a href="{{ route('stagiaires.edit', $stagiaires) }}" class="btn btn-primary btn-sm">Modifier un stagiaire</a>
+                                    <form action="{{ route('stagiaires.destroy', $stagiaires ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer un stagiaire</button>
                                     </form>
+
+
+
+                                    {{-- <a href="{{ route('stagiaires.edit', $stagiaires->id) }}" class="btn btn-primary btn-sm">Modifier un  stagiaire</a>
+                                    <form action="{{route('stagiaires.destroy', $stagiaires ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer un stagiaire</button>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @endforeach
