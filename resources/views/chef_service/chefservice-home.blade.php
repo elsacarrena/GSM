@@ -15,7 +15,8 @@
                     @endif
                     <h3>Bienvenue sur la page des Chefs Services</h3>
                     {{ __('Vous etes connecté!') }}
-
+                    <a href="{{ route('chef_service.create') }}" class="btn btn-primary">Ajouter un chef service </a>
+                    <a href="{{ route('chef_service.index') }} " class="btn btn-danger">Revenir a la liste des chef services</a>
                 </div>
             </div>
         </div>

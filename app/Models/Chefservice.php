@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Stagiaires extends Model
+class Chefservice extends Model
 {
-    protected $table = 'stagiaires';
+    protected $table = 'chefservice';
     use HasFactory;
     protected $fillable = [
         'nom',
@@ -17,3 +17,4 @@ class Stagiaires extends Model
         'numero_urgence',
     ];
 }
+

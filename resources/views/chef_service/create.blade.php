@@ -3,16 +3,16 @@
 
 @section('content')
 <div class="container">
-    <link href="{{ asset('css/stagiare_create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Ajouter un nouveau  stagiaire</div>
+            <div class="card-header">Ajouter un nouveau  chef service</div>
 
             <div class="card-body">
                 <hr>
                 <h1>Les champs avec <span class="required">*</span> sont obligatoires :</h1>
 
-                <form action="{{route('stagiaires.store') }}" method="POST">
+                <form action="{{route('chef_service.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nom">nom: <span class="required">*</span></label>
@@ -27,8 +27,6 @@
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
 
-
-
                     <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="localisation" name="localisation" required>
@@ -39,9 +37,11 @@
                         <input type="text" class="form-control" id="numero_urgence" name="numero_urgence" required>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Ajouter un stagiaire</button>
+                 
+                    <button type="submit" class="btn btn-primary">Ajouter un chefservice</button>
                     {{--  <a href="{{ route('stagiaires.index') }}" class="btn btn-primary">Ajouter un stagiaire</a>  --}}
-                    <a href="{{ route('stagiaires.index') }}" class="btn btn-danger">Revenir a la liste des stagiaires</a>
+                    {{--  <a href="/home" class="btn btn-danger">Revenir a la liste des chefservices</a>  --}}
+                    <a href="{{ route('chef_service.index') }} " class="btn btn-danger">Revenir a la liste des chef services</a>
                 </form>
             </div>
         </div>

@@ -15,7 +15,8 @@
                     @endif
                     <h3>Bienvenue sur la page des Employés</h3>
                     {{ __('Vous etes connecté!') }}
-
+                    <a href="{{ route('employe.create') }}" class="btn btn-primary">Ajouter un employe</a>
+                    <a href="{{ route('employe.index') }} " class="btn btn-danger">Revenir a la liste des employe</a>
                 </div>
             </div>
         </div>
