@@ -6,8 +6,6 @@ namespace App\Http\Controllers;
 use App\Models\Stagiaires;
 
 
-
-
 use Illuminate\Http\Request;
 
 
