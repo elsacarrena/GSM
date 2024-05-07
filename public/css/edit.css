@@ -1,0 +1,67 @@
+/* CSS pour le formulaire en général */
+form {
+    margin-top: 20px;
+}
+
+/* CSS pour les champs de formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* CSS pour les étiquettes */
+label {
+    font-weight: bold;
+}
+
+/* CSS pour les champs obligatoires */
+.required {
+    color: red;
+}
+
+/* CSS pour les boutons */
+.btn {
+    margin-right: 10px;
+}
+
+/* CSS pour le lien de retour */
+.btn-danger {
+    background-color: red;
+}
+
+/* CSS pour la carte */
+.card {
+    margin-top: 20px;
+}
+
+/* CSS pour l'en-tête de la carte */
+.card-header {
+    background-color: #dca4cc;
+    font-weight: bold;
+}
+
+/* CSS pour le corps de la carte */
+.card-body {
+    padding: 30px;
+}
+/* stagiaire_create.css */
+
+/* Centrer le formulaire */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 40vh; */
+}
+
+.card {
+    width: 80%; /* Ajuster la largeur de la carte */
+}
+
+/* Réduire la taille des champs de saisie */
+.form-control {
+    height: 40px; /* Ajuster la hauteur des champs */
+    font-size: 16px; /* Ajuster la taille de la police */
+}
+body{
+    background-color: rgb(201, 243, 243);
+}

@@ -37,17 +37,15 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
-                        </li>
-                    @endif
 
-                             @if (Route::has('login'))
+
+                                @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                                 </li>
                             @endif
+
+
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -57,6 +55,11 @@
 
                              @else
 
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{ route('chef_service.accueil') }}">{{ __('Accueil') }}</a>
+                             </li>
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -65,7 +68,7 @@
 
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('chef_service.index') }}">
+                                    <a class="dropdown-item" href="{{ route('chef_service.create') }}">
                                         {{ __('Ajouter un  chef de service') }}
                                     </a>
 
@@ -73,6 +76,18 @@
                                         {{ __('Liste des chefs services') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="{{ route('employe.create') }}">
+                                        {{ __('Ajouter un  employé') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('employe.profilliste') }}">
+                                        {{ __('Liste des employés') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('stagiaires.create') }}">
+                                        {{ __('Ajouter un  stagiaire') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('stagiaires.profilliste') }}">
+                                        {{ __('Liste des stagiaires') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

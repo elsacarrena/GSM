@@ -8,7 +8,7 @@
             <div class="card-header">Liste des stagiaires</div>
 
             <div class="card-body">
-                <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+                <link href="{{ asset('css/index_chefservice.css') }}" rel="stylesheet">
                 <a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
 
                 @if (session('success'))

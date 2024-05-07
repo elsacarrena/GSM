@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <link href="{{ asset('css/create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stagiaire_create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
             <div class="card-header">Ajouter un nouveau Stagiaire</div>
@@ -25,9 +25,6 @@
                         <label for=" domaine">Domaine: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
-
-
-
                     <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="localisation" name="localisation" required>

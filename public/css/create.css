@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* Style personnalisé pour centrer le contenu */
+.container {
+    /* margin-top: 10px;
+    background-color: #e4e8ed;
+    padding: 20px; */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: bisque;
+
+}
+
+/* Style  pour les boutons */
+.btn {
+    margin-right: 5px; /* Ajoute un espace entre les boutons */
+}
+ /* Style pour le titre */
+/* h1 {
+    color: #12c189;
+    font-size: 40px;
+    margin-bottom: 20px;
+} */
+/* .form{
+    background-color: rgb(148, 177, 235);
+} */
+.form-group label {
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+.form{
+    background-color: #6b9cb7;
+}
+
+
+.card {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #b0e6d5; */
+}
+.card-header {
+    background-color: bisque;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+.card-body {
+    padding: 20px;
+    background-color: bisque;
+}
+
+/* .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+} */
+.btn-primary {
+    background-color: #ff00ae;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.btn-danger {
+    background-color: #10eadc;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* .form-spacing {
+    margin-bottom: 10px;
+} */
+
+.required {
+    color: rgb(253, 10, 42);
+ }
+ h1{
+    color: #333; /* Changez cette couleur selon votre préférence */
+    font-size: 20px; /* Changez cette taille selon votre préférence */
+    margin-bottom: 20px; /* Changez cette marge selon votre préférence */
+    }

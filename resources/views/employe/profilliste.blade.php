@@ -1,15 +1,15 @@
-@extends('layouts.stagiaire')
+@extends('layouts.employe')
 
 @section('content')
 <div class="container">
 
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Liste d'informations d'un stagiaire </div>
+            <div class="card-header">Liste d'informations d'un employé </div>
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
+                <a href="{{ route('employe.profilform') }}" class="btn btn-primary">Ajouter une information dun employe</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -51,12 +51,12 @@
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('stagiaires.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                    <div class="btn-group"><a href="{{ route('employe.profiledit', $profil) }}" class="btn btn-primary btn-sm">Modifier un employé</a>
 
-                                   <form action="{{ route('stagiaires.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                   <form action="{{ route('employe.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                        @csrf
                                        @method('DELETE')
-                                       <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                                       <button type="submit" class="btn btn-sm btn-danger">Supprimer un employé</button>
 
                                    </form>
                                 </div>
@@ -73,7 +73,7 @@
 
 <script>
     function confirmDelete() {
-        return confirm("Êtes-vous sûr de vouloir supprimer ce stagiaire ?");
+        return confirm("Êtes-vous sûr de vouloir supprimer cet employé ?");
     }
 </script>
 

@@ -37,13 +37,13 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            
 
+{{-- 
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
 
                              @else
 

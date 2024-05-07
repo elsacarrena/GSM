@@ -1,5 +1,5 @@
-{{--
-@extends('layouts.app')
+
+@extends('layouts.employe')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
                 <div class="card-header">{{ __('S\'enregistrer') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('registeremploye_post') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -76,4 +76,4 @@
         </div>
     </div>
 </div>
-@endsection --}}
+@endsection

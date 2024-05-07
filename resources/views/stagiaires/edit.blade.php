@@ -4,7 +4,7 @@
     <div class="container">
 
         <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
-        <form action="{{ route('stagiaire.update', $stagiaire->id) }}" method="POST">
+        <form action="{{ route('stagiaires.update', $stagiaire->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group">
-                <label for="numero_urgence"> Numéro à contacter en cas durgence </label>
+                <label for="numero_urgence"> Numéro à contacter en cas d'urgence </label>
                 <input type="text" name="numero_urgence" id="numero_urgence" class="form-control" value="{{$stagiaire->numero_urgence}}" required>
             </div>
 
@@ -38,3 +38,7 @@
         </form>
     </div>
 @endsection
+
+
+
+

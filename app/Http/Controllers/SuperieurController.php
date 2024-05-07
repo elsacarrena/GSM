@@ -13,15 +13,9 @@ class SuperieurController extends Controller
         $this->middleware('superieur');
     }
 
-    public function create(){
-        return view('superieur.create');
-    }
-
-    public function index()
-    {
-        $superieur = Superieur::all();
-        return view('superieur.index', compact('superieur'));
-    }
+    public function accueil(){
+        return view('superieur.accueil');
+     }
 
 
 

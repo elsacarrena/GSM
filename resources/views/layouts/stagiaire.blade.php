@@ -37,27 +37,25 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                        {{-- @if (Route::has('stagiaires.create'))
-                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stagiaires.create') }}">{{ __('Ajouter un stagiaire') }}</a>
-                            {{--<a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
 
-                        </li>
-                        @endif --}}
+                            
                              @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('registerstagiaires'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
+                                    <a class="nav-link" href="{{ route('registerstagiaires') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
                             @endif
 
-                             @else
-                             
+                        @else
+                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('stagiaires.accueil') }}">{{ __('Accueil') }}</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
