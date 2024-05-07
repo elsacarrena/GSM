@@ -9,6 +9,12 @@ use App\Models\Stagiaires;
 
 
 use Illuminate\Http\Request;
+
+
+
+use App\Models\Profilstagiaires;
+
+
 use App\Http\Middleware\Stagiaire;
 
 class stagiaireController extends Controller
