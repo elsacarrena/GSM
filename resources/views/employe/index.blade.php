@@ -24,7 +24,6 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
-                            <th>type</th>
                              <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
@@ -37,8 +36,7 @@
                                 <td>{{ $employe->nom}}</td>
                                 <td>{{ $employe->numero}}</td>
                                 <td>{{ $employe->domaine}}</td>
-                                <td>{{ $employe->type}}</td>
-                                 <td>{{ $employe->localisation}}</td>
+                                  <td>{{ $employe->localisation}}</td>
                                  <td>{{ $employe->numero_urgence }}</td>
                                 <td>
                                     <a href="{{ route('employe.edit', $employe) }}" class="btn btn-primary btn-sm">Modifier un  employe</a>

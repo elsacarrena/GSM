@@ -1,6 +1,6 @@
 /* CSS pour le formulaire en général */
 form {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 /* CSS pour les champs de formulaire */
@@ -30,7 +30,7 @@ label {
 
 /* CSS pour la carte */
 .card {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 /* CSS pour l'en-tête de la carte */
@@ -54,11 +54,14 @@ label {
 }
 
 .card {
-    width: 100%; /* Ajuster la largeur de la carte */
+    width: 80%; /* Ajuster la largeur de la carte */
 }
 
 /* Réduire la taille des champs de saisie */
 .form-control {
     height: 40px; /* Ajuster la hauteur des champs */
     font-size: 16px; /* Ajuster la taille de la police */
+}
+body{
+    background-color: rgb(201, 243, 243);
 }

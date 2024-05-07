@@ -126,9 +126,11 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
 
 use App\Http\Controllers\Chefservice;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\stagiaireController;
+use App\Http\Controllers\SuperieurController;
 use App\Http\Controllers\ChefserviceController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\EnregistrerController;
@@ -166,13 +168,44 @@ Route::get('/home', function () {
   Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
+  Route::get('/inscription_chefservice', function(){
+    return view('auth/inscription_chefservice');
+  })->name(' inscription_chefservice');
+  Route::post('/inscription_chefservice', [UserController::class, 'registerChefservice'])->name('inscription_chefservice');
 
-  Route::get('/register', function(){
-    return view('auth/register');
-  })->name('register');
-  Route:: post('/register', [RegisterController::class, 'register'])->name('register');
+
+// Route de confirmation de l'inscription
+Route::get('/confirm/{id}/{token}', [UserController::class, 'confirm']);
+
+//
 
 
+
+  Route::get('/inscription_superieur', function(){
+    return view('auth/inscription_superieur');
+  })->name('inscription_superieur ');
+  Route::post('/inscription_superieur', [UserController::class, 'registerSuperieur'])->name('inscription_superieur');
+
+
+
+  Route::get('/activer_compte/{id}', [UserController::class, 'activerCompte'])->name('activation.compte');
+
+// Route de confirmation de l'inscription
+Route::get('/confirm/{id}/{token}', [UserController::class, 'confirm']);
+
+
+
+
+// Route::get('/inscription_superieur', function(){
+//     return view('auth/inscription_superieur');
+//   })->name('inscription_superieur');
+//   Route::post('/inscription_superieur', [UserController::class, 'register'])->name('inscription_superieur');
+
+
+//   Route::get('/register', function(){
+//     return view('auth/register');
+//   })->name('register');
+//   Route:: post('/register', [RegisterController::class, 'register'])->name('register');
 
 
 
@@ -218,7 +251,14 @@ Route::get('/confirm/{id}/{token}', [RegisterController::class, 'confirm']);
 });
 Route::prefix('superieur')->middleware(['auth', 'superieur'])->group(function () {
     Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home');
+ // Routes pour la gestion des employés
+ Route::get('/employe/create', [EmployeController::class, 'create'])->name('employe.create');
+ Route::get('/employe', [EmployeController::class, 'index'])->name('employe.index');
 
+ // Routes pour la gestion des stagiaires
+ Route::get('/stagiaires/create', [StagiaireController::class, 'create'])->name('stagiaires.create');
+ Route::get('/stagiaires', [StagiaireController::class, 'index'])->name('stagiaires.index');
+ Route::get('/superieur/accueil', [SuperieurController::class, 'accueil'])->name('superieur.accueil');
 });
 
 Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
@@ -243,6 +283,24 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
 
         // Suppression d'un employé
         Route::delete('/{employe}', [EmployeController::class, 'destroy'])->name('employe.destroy');
+        // Affichage du formulaire pour ajouter un nouveau profil de stagiaire
+ Route::get('/employe/profilform', [EmployeController::class, 'profilform'])->name('employe.profilform');
+
+        // Ajout d'un nouveau profil de employe
+ Route::post('/employe/profilstore', [EmployeController::class, 'storeProfil'])->name('employe.profilStore');
+
+ // Affichage de la liste des profils d employe
+ Route::get('/employe/profilliste', [EmployeController::class, 'profilListe'])->name('employe.profilliste');
+
+ // Affichage du formulaire de modification d'un profil demploye
+ Route::get('/employe/profil/{profil}/edit', [EmployeController::class, 'profilEdit'])->name('employe.profilEdit');
+
+ // Mise à jour des informations d'un profil demploye
+ Route::put('/employe/profil/{profil}', [EmployeController::class, 'profilUpdate'])->name('employe.profilUpdate');
+
+ // Suppression d'un profil demploye
+ Route::delete('/employe/profil/{profil}', [EmployeController::class, 'profilDestroy'])->name('employe.profilDestroy');
+
     });
 
   Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
@@ -264,7 +322,23 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
    Route::put('/stagiaires/{stagiaire}',  [stagiaireController::class, 'update'])->name('stagiaires.update');
    // Suppression d'un    Personnels
    Route::delete('/stagiaires/{stagiaire}', [stagiaireController::class, 'destroy'])->name('stagiaires.destroy');
+ // Affichage du formulaire pour ajouter un nouveau profil de stagiaire
+ Route::get('/stagiaires/profilform', [stagiaireController::class, 'profilForm'])->name('stagiaires.profilForm');
 
+ // Ajout d'un nouveau profil de stagiaire
+ Route::post('/stagiaires/profilstore', [stagiaireController::class, 'storeProfil'])->name('stagiaires.profilStore');
+
+ // Affichage de la liste des profils de stagiaires
+ Route::get('/stagiaires/profilliste', [stagiaireController::class, 'profilListe'])->name('stagiaires.profilListe');
+
+ // Affichage du formulaire de modification d'un profil de stagiaire
+ Route::get('/stagiaires/profil/{profil}/edit', [stagiaireController::class, 'profilEdit'])->name('stagiaires.profilEdit');
+
+ // Mise à jour des informations d'un profil de stagiaire
+ Route::put('/stagiaires/profil/{profil}', [stagiaireController::class, 'profilUpdate'])->name('stagiaires.profilUpdate');
+
+ // Suppression d'un profil de stagiaire
+ Route::delete('/stagiaires/profil/{profil}', [stagiaireController::class, 'profilDestroy'])->name('stagiaires.profilDestroy');
   });
   Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(function () {
     Route::get('/chefservice/home', [App\Http\Controllers\HomeController::class, 'chefserviceHome'])->name('chefservice.home');
@@ -284,6 +358,24 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
    Route::put('/chef_service/{chefservice}',  [ChefserviceController::class, 'update'])->name('chef_service.update');
    // Suppression d'un    Personnels
    Route::delete('/chef_service/{chefservice}', [ChefserviceController::class, 'destroy'])->name('chef_service.destroy');
+   // Affichage du formulaire pour ajouter un nouveau profil de stagiaire
+ Route::get('/chef_service/profilform', [ChefserviceController ::class, 'profilForm'])->name('chef_service.profilForm');
+
+ // Ajout d'un nouveau profil de stagiaire
+ Route::post('/chef_service/profilstore', [ChefserviceController::class, 'storeProfil'])->name('chef_service.profilStore');
+
+ // Affichage de la liste des profils de stagiaires
+ Route::get('/chef_service/profilliste', [ ChefserviceController::class, 'profilListe'])->name('chef_service.profilListe');
+
+ // Affichage du formulaire de modification d'un profil de stagiaire
+ Route::get('/chef_service/profil/{profil}/edit', [ChefserviceController::class, 'profilEdit'])->name('chef_service.profilEdit');
+
+ // Mise à jour des informations d'un profil de stagiaire
+ Route::put('/chef_service/profil/{profil}', [ChefserviceController::class, 'profilUpdate'])->name('chef_service.profilUpdate');
+
+ // Suppression d'un profil de stagiaire
+ Route::delete('/chef_service/profil/{profil}', [ChefserviceController::class, 'profilDestroy'])->name('chef_service.profilDestroy');
+
   });
 
 

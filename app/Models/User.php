@@ -23,7 +23,9 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'first_login',
+        'etat_compte',
         'confirmation_token'
+
 
     ];
 

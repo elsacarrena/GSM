@@ -1,15 +1,15 @@
-@extends('layouts.stagiaire')
+@extends('layouts.chefservice')
 
 @section('content')
 <div class="container">
 
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Liste dinformations dun stagiaire </div>
+            <div class="card-header">Liste dinformations dun chefservice </div>
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
+                <a href="{{ route('chef_service.profilForm') }}" class="btn btn-primary">Ajouter une information dun chefservice</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -53,24 +53,16 @@
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('stagiaires.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                    <div class="btn-group"><a href="{{ route('chef_service.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier</a>
 
-                                   <form action="{{ route('stagiaires.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                   <form action="{{route('chef_service.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                        @csrf
                                        @method('DELETE')
                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
 
                                    </form>
                                 </div>
-                                    {{--  <a href="{{ route('stagiaires.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier</a>
-                                    <br>
-                                     <br>
-                                    <form action="{{ route('stagiaires.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
 
-                                    </form>  --}}
                                 </td>
                             </tr>
                         @endforeach

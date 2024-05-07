@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 // // use App\Models\Stagiaires;
 // use Illuminate\Http\Request;
 use App\Models\Stagiaires;
-
-
-
-
 use Illuminate\Http\Request;
+
+
+
+use App\Models\Profilstagiaires;
 use App\Http\Middleware\Stagiaire;
 
 class stagiaireController extends Controller
@@ -80,4 +80,79 @@ class stagiaireController extends Controller
 
         return redirect()->route('stagiaires.index')->with('success', 'Membre supprimé avec succès');
     }
+    // Fonction pour afficher le formulaire pour ajouter un nouveau profil de stagiaire
+   public function profilForm()
+   {
+       return view('stagiaires.profilForm');
+   }
+    //Fonction pour enregistrer un nouveau profil de stagiaire
+   public function storeProfil(Request $request)
+   {
+       $request->validate([
+           'nom' => 'required|string|max:255',
+           'numero' => 'required|string|max:255',
+           'domaine' => 'required|string|max:255',
+           'type' => 'required|string|max:255',
+           'groupe_sanguin' => 'required|string|max:255',
+           'maladie' => 'required|string|max:255',
+           'localisation' => 'required|string|max:255',
+           'nom_pere' => 'required|string|max:255',
+           'nom_mere' => 'required|string|max:255',
+           'numero_pere' => 'required|string|max:255',
+           'numero_mere' => 'required|string|max:255',
+           'numero_urgence' => 'required|string|max:255',
+       ]);
+
+       Profilstagiaires::create($request->all());
+
+       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
+
+   }
+
+   // Fonction pour afficher la liste des profils de stagiaires
+   public function profilListe()
+   {
+       $profils = Profilstagiaires::all();
+       return view('stagiaires.profilListe', compact('profils'));
+   }
+
+   // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
+   public function profilEdit($id)
+   {
+       $profil = Profilstagiaires::findOrFail($id);
+       return view('stagiaires.profilEdit', compact('profil'));
+   }
+
+   // Fonction pour mettre à jour un profil de stagiaire
+   public function profilUpdate(Request $request, $id)
+   {
+       $request->validate([
+           'nom' => 'required|string|max:255',
+           'numero' => 'required|string|max:255',
+           'domaine' => 'required|string|max:255',
+           'type' => 'required|string|max:255',
+           'groupe_sanguin' => 'required|string|max:255',
+           'maladie' => 'required|string|max:255',
+           'localisation' => 'required|string|max:255',
+           'nom_pere' => 'required|string|max:255',
+           'nom_mere' => 'required|string|max:255',
+           'numero_pere' => 'required|string|max:255',
+           'numero_mere' => 'required|string|max:255',
+           'numero_urgence' => 'required|string|max:255',
+       ]);
+
+       $profil = Profilstagiaires::findOrFail($id);
+       $profil->update($request->all());
+
+       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire mis à jour avec succès!');
+   }
+   // Fonction pour supprimer un profil de stagiaire
+   public function profilDestroy($id)
+   {
+       $personnel = Profilstagiaires::findOrFail($id);
+       $personnel->delete();
+
+       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire supprimé avec succès');
+   }
 }
+

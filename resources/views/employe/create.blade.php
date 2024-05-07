@@ -25,9 +25,6 @@
                         <label for=" domaine">Domaine: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
-
-
-
                     <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="localisation" name="localisation" required>
@@ -39,7 +36,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Ajouter un employé</button>
-                    <a href="{{ route('employe.index') }}" class="btn btn-danger">Revenir a la liste des employés</a>
+                    <a href="{{ route('employe.index') }}" class=" btn btn-danger">Revenir a la liste des employés</a>
                 </form>
             </div>
         </div>

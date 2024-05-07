@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <link href="{{ asset('css/create.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stagiaire_create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
             <div class="card-header">Ajouter un nouveau Stagiaire</div>

@@ -1,18 +1,17 @@
-@extends('layouts.stagiaire')
+@extends('layouts.employe')
 
 @section('content')
 <div class="container">
     <link href="{{ asset('css/create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Ajouter un nouveau profil de stagiaire</div>
+            <div class="card-header">Ajouter un nouveau profil dun employe</div>
 
             <div class="card-body">
                 <hr>
                 <h1>Les champs avec <span class="required">*</span> sont obligatoires :</h1>
 
-                <form action="{{ route('stagiaires.profilStore') }}" method="POST">
-
+                <form action="{{ route('employe.profilStore') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nom">Nom: <span class="required">*</span></label>
@@ -63,9 +62,8 @@
                         <input type="text" class="form-control" id="numero_urgence" name="numero_urgence" required>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Ajouter un profil de stagiaire</button>
-                    <a href="{{ route('stagiaires.profilListe') }}" class="btn btn-danger">Revenir à la liste des profils de stagiaires</a>
-
+                    <button type="submit" class="btn btn-primary">Ajouter un profil employe</button>
+                    <a href="{{ route('employe.profilliste') }}" class=" btn btn-danger"> Revenir a la liste des infos dun employé</a>
 
                 </form>
             </div>

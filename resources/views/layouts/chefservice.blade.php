@@ -43,15 +43,11 @@
                         </li>
                     @endif
 
-                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
-                                </li>
-                            @endif
+                             
 
-                            @if (Route::has('register'))
+                            @if (Route::has('inscription_chefservice'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
+                                    <a class="nav-link" href="{{ route('inscription_chefservice') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
                             @endif
 
@@ -72,7 +68,12 @@
                                     <a class="dropdown-item" href="{{ route('chef_service.index') }}">
                                         {{ __('Liste des chefs services') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
+                                        {{ __('Liste des informations des chefs services') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('chef_service.profilForm') }}">
+                                        {{ __('Informations des chefs services') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
