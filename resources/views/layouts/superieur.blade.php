@@ -49,13 +49,16 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('inscription_superieur'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
+                                    <a class="nav-link" href="{{ route('inscription_superieur') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
                             @endif
 
                              @else
+                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('superieur.accueil') }}">{{ __('Accueil') }}</a>
+                            </li>
                              <li class="nav-item">
                                 <a class="nav-link" href="{{ route('superieur.accueil') }}">{{ __('Accueil') }}</a>
                             </li>
@@ -65,6 +68,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('employe.create') }}">
+                                        {{ __('Ajouter un  employé') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('employe.profilliste') }}">
 
                                     <a class="dropdown-item" href="{{ route('employe.create') }}">
                                         {{ __('Ajouter un  employé') }}
@@ -90,6 +98,8 @@
 
 
 
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -99,6 +109,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
 
 
                             </li>

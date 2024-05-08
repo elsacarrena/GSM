@@ -15,7 +15,5 @@ class Stagiaires extends Model
         'domaine',
         'localisation',
         'numero_urgence',
-        
-
     ];
 }

@@ -10,6 +10,7 @@
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
                 <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
+                <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -32,10 +33,15 @@
                             <th>Numero Pere</th>
                             <th>Numero Mere</th>
                             <th>Numéro urgence</th>
+                            <th>Nom Mere</th>
+                            <th>Numero Pere</th>
+                            <th>Numero Mere</th>
+                            <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($profils as $profil)
                         @foreach ($profils as $profil)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>

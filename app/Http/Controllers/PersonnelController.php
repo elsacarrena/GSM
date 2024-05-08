@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PersonnelController extends Controller
 {
-    //
     public function create(){
         return view('personnel/create');
     }
@@ -26,41 +25,21 @@ class PersonnelController extends Controller
             'nom' => 'required',
             'numero' => 'required',
             'domaine' => 'required',
-            'groupe_sanguin' => 'required',
-            'maladie' => 'required|',
             'localisation' => 'required',
-            'nom_pere' => 'required',
-            'nom_mere' => 'required',
-            'numero_pere' => 'required',
-            'numero_mere' => 'required',
             'numero_urgence' => 'required',
         ]);
         // Vérifier si un étudiant avec le même numéro de téléphone existe déjà
-    $existingPersonnel = Personnel::where('numero', $request->numero)->exists();
 
-    if ($existingPersonnel) {
-        return redirect()->back()->with('error', 'Un membre avec ce numéro de téléphone existe déjà.');
-    } else {
         // Créer un nouvel étudiant s'il n'existe pas déjà
                     Personnel::create([
                         'nom' => $request ->nom,
                         'numero' => $request ->numero,
                         'domaine' => $request ->domaine,
-                        'groupe_sanguin' => $request ->groupe_sanguin,
-                        'maladie' => $request ->maladie,
                         'localisation' => $request ->localisation,
-                        'nom_pere' => $request ->nom_pere,
-                        'nom_mere' => $request ->nom_mere,
-                        'numero_pere' => $request ->numero_pere,
-                        'numero_mere' => $request ->numero_mere,
                         'numero_urgence' => $request ->numero_urgence,
-
-
                     ]);
 
-        // Création de l'étudiant à l'aide du modèle Student
-        //Student::create($request->all());
-            }
+
             if ($request->input('role') === 'employe') {
                 return redirect()->route('employe-home')->with('success', 'Employé ajouté avec succès!');
             } elseif ($request->input('role') === 'stagiaire') {
@@ -91,26 +70,22 @@ class PersonnelController extends Controller
         'nom' => 'required|string',
         'numero' => 'required |string',
         'domaine' => 'required |string',
-        'groupe_sanguin' => 'required |string',
-        'maladie' => 'required |string',
         'localisation' => 'required |string',
-        'nom_pere' => 'required |string',
-        'nom_mere' => 'required |string',
-        'numero_pere' => 'required |string',
-        'numero_mere' => 'required |string',
-        'numero_urgence' => 'required |string'
+        'numero_urgence' => 'required |string',
         ]);
 
-        // Recherche de l'étudiant à mettre à jour
+        // Recherche du personnel à mettre à jour
         $personnel = Personnel::findOrFail($id);
         // Mise à jour des informations de l'étudiant
         $personnel->update($request->all());
 
-        // Redirection vers la liste des étudiants avec un message de succès
-        return redirect()->route('personnel/index')->with('success', 'Membre modifié avec succès');
+        // Redirection vers la liste des personnels avec un message de succès
+        // return redirect()->route('personnel/index')->with('success', 'Membre modifié avec succès');
+        return redirect()->route('personnel.index')->with('success', 'Membre ajouté avec succès!');
+
     }
 
-    // Méthode pour supprimer un étudiant de la base de données
+    // Méthode pour supprimer un  personnel de la base de données
     public function destroy($id)
     {
 
@@ -119,7 +94,9 @@ class PersonnelController extends Controller
         // Suppression de l'étudiant
         $personnel->delete();
 
-        // Redirection vers la liste des étudiants avec un message de succès
-        return redirect()->route('personnel/index')->with('success', 'Membre supprimé avec succès');
+        // Redirection vers la liste du personnel avec un message de succès
+        // return redirect()->route('personnel/index')->with('success', 'Membre supprimé avec succès');
+        return redirect()->route('personnel.index')->with('success', 'Membre supprimé avec succès');
+
     }
 }

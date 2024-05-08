@@ -26,6 +26,7 @@ class User extends Authenticatable
         'etat_compte',
         'confirmation_token'
 
+
     ];
 
     /**

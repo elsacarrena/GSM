@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Superieur extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nom',
+        'numero',
+        'domaine',
+        'localisation',
+        'numero_urgence',
+    ];
 }

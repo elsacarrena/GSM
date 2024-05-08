@@ -5,6 +5,7 @@
 
         <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
         <form action="{{ route('employe.update', $employe->id) }}" method="POST">
+        <form action="{{ route('employe.update', $employe->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -12,20 +13,24 @@
             <div class="form-group">
                 <label for="nom">Votre nom </label>
                 <input type="text" name="nom" id="nom" class="form-control" value="{{$employe->nom }}" required>
+                <input type="text" name="nom" id="nom" class="form-control" value="{{$employe->nom }}" required>
             </div>
 
 
             <div class="form-group">
                 <label for="numero"> Votre numéro </label>
                 <input type="text" name="numero" id="numero" class="form-control"  value="{{ $employe->numero}}" required>
+                <input type="text" name="numero" id="numero" class="form-control"  value="{{ $employe->numero}}" required>
             </div>
 
             <div class="form-group">
                 <label for="domaine"> Votre domaine de travail </label>
                 <input type="text" name="domaine" id="domaine" class="form-control"  value="{{$employe->domaine}}" required>
+                <input type="text" name="domaine" id="domaine" class="form-control"  value="{{$employe->domaine}}" required>
             </div>
             <div class="form-group">
                 <label for="localisation"> Votre  Localisation </label>
+                <input type="text" name="localisation" id="localisation" class="form-control" value="{{$employe->localisation}}" required>
                 <input type="text" name="localisation" id="localisation" class="form-control" value="{{$employe->localisation}}" required>
             </div>
 

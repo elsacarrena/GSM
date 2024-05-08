@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="numero_urgence">Numero en cas d'urgence: <span class="required">*</span></label>
+                        <label for="numero_urgence">Numero en cas durgence: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="numero_urgence" name="numero_urgence" required>
                     </div>
                     <br>

@@ -10,7 +10,6 @@
             <div class="card-body">
                 <link href="{{ asset('css/index_chefservice.css') }}" rel="stylesheet">
                 <a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
-
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -20,7 +19,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-
                             <th>id</th>
                             <th>Nom</th>
                             <th>numero</th>

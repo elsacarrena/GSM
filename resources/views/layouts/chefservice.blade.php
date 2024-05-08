@@ -49,7 +49,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'enregistrer') }}</a>
+                                    <a class="nav-link" href="{{ route('inscription_chefservice') }}">{{ __('S\'enregistrer') }}</a>
                                 </li>
                             @endif
 

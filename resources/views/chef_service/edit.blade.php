@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group">
-                <label for="numero_urgence"> Numéro à contacter en cas d'urgence </label>
+                <label for="numero_urgence"> Numéro à contacter en cas durgence </label>
                 <input type="text" name="numero_urgence" id="numero_urgence" class="form-control" value="{{$chefservice->numero_urgence}}" required>
             </div>
 

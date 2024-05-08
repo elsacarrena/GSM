@@ -178,7 +178,7 @@ class EmployeController extends Controller
     }
 
 
-   
+
 
     protected function validator(array $data)
     {
