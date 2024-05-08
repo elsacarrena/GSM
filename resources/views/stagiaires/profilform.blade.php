@@ -31,11 +31,7 @@
 
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
-                    <div class="form-group">
-                        <label for="type">Type: <span class="required">*</span></label>
-
-                        <input type="text" class="form-control" id="type" name="type" required>
-                    </div>
+              
                     <div class="form-group">
                         <label for="groupe_sanguin">Groupe sanguin: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="groupe_sanguin" name="groupe_sanguin" required>

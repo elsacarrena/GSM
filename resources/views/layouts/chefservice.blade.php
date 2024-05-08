@@ -73,7 +73,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
-                                        {{ __('Liste des infos chefs services') }}
+                                        {{ __('Liste des chefs services') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('employe.create') }}">

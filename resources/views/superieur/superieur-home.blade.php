@@ -15,10 +15,7 @@
                     @endif
                     <h3>Bienvenue sur la page  des supérieurs</h3>
                     {{ __('Vous etes connecté!') }}
-                    {{--  <a href="{{ route('employe.create') }}" class="btn btn-primary">Ajouter un employe</a>
-                    <a href="{{ route('employe.index') }} " class="btn btn-danger">Revenir a la liste des employe</a>
-                    <a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
-                    <a href="{{ route('stagiaires.index') }} " class="btn btn-danger">Revenir a la liste des stagiaires</a>  --}}
+
                 </div>
             </div>
         </div>

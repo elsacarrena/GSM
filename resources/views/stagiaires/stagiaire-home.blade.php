@@ -15,9 +15,7 @@
                     @endif
                     <h3>Bienvenue sur la page des stagiaires</h3>
                     {{ __('Vous etes connecté!') }}
-                    <a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
-                     <a href="{{ route('stagiaires.index') }} " class="btn btn-danger">Revenir a la liste des stagiaires</a>
-                     <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information du stagiaire</a>
+                    
 
                 </div>
             </div>

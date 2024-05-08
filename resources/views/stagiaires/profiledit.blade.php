@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
-    <form action="{{ route('stagiaires.profilUpdate', $profil->id) }}" method="POST">
+    <form action="{{ route('stagiaires.profilUpdate', ['id'=> $profil->id]) }}" method="POST">
         @csrf
         @method('PUT')
 

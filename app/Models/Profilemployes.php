@@ -20,10 +20,13 @@ class Profilemployes extends Model
         'numero_pere' ,
          'numero_mere',
         'numero_urgence',
+        'users_id',
     ];
-    protected $primaryKey= 'idprofilemployes ';
 
-    public function user(){
-        return $this->belongsTo ( User::class, 'users_id');
+    protected $primaryKey= 'idProfilemployes';
+
+    public function users(){
+        return $this->belongsTo (User::class, 'users_id');
     }
+
 }
