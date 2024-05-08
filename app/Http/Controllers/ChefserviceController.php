@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Chefservice;
+use Illuminate\Support\Str;
+
 // // use App\Models\Stagiaires;
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Str;
@@ -24,12 +26,12 @@ use App\Models\Chefservice;
 
 
 
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Profilchefservice;
 
 
 // use App\Http\Middleware\chefservice;
-use App\Models\Profilchefservice;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\RegisteredUser;
 use Illuminate\Auth\Events\Registered;
@@ -135,8 +137,20 @@ class ChefserviceController extends Controller
          'numero_mere' => 'required|string|max:255',
          'numero_urgence' => 'required|string|max:255',
      ]);
-
-     Profilchefservice::create($request->all());
+     $user = Auth::user();
+     $id = $user->id;
+     Profilchefservice::create([
+        'nom' => $request->nom,
+        'numero' => $request->numero,
+        'domaine' => $request->domaine,
+        'groupe_sanguin'=>$request->groupe_sanguin,
+        'maladie'=>$request->maladie,
+        'localisation' => $request->localisation,
+        'nom_pere'=> $request->nom_pere,
+        'nom_mere'=> $request->nom_mere,
+        'numero_urgence' => $request->numero_urgence,
+        'users_id' =>$id,
+    ]);
 
      return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service ajouté avec succès!');
  }

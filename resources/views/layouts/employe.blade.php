@@ -72,10 +72,10 @@
                                     <a class="dropdown-item" href="{{ route('employe.create') }}">
                                         {{ __('Ajouter un employé') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('employe.profilform') }}">
+                                    <a class="dropdown-item" href="{{ route('employe.profilForm') }}">
                                         {{ __('Ajouter une information dun employé') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('employe.profilliste') }}">
+                                    <a class="dropdown-item" href="{{ route('employe.profilListe') }}">
                                         {{ __('liste_information dun employé') }}
                                     </a>
 

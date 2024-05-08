@@ -21,5 +21,13 @@ class Profilstagiaires extends Model
         'numero_pere' ,
          'numero_mere',
         'numero_urgence',
+        'users_id',
     ];
+
+    protected $primaryKey= 'idProfilstagiaires';
+
+    public function users(){
+        return $this->belongsTo (User::class, 'users_id');
+
+    }
 }

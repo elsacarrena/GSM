@@ -20,7 +20,6 @@ return new class extends Migration
             $table->boolean('is_admin')->default(0);
             $table->boolean('first_login')->default(0);
             $table->boolean('etat_compte')->default(0);
-
             $table->rememberToken();
             $table->timestamps();
         });

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nom');
             $table->string('numero');
             $table->string('domaine');
-            $table->string('type');
             $table->string('groupe_sanguin');
             $table->string('maladie');
             $table->string('localisation');
@@ -25,6 +24,7 @@ return new class extends Migration
             $table->string('numero_pere');
             $table->string('numero_mere');
             $table->string('numero_urgence');
+            $table->foreignId('users_id')->constrained('users');
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+// use App\Models\Users;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -21,5 +21,13 @@ class Profilchefservice extends Model
         'numero_pere' ,
          'numero_mere',
         'numero_urgence',
+        'users_id',
     ];
+
+    protected $primaryKey= 'idProfilchefservice';
+
+    public function users(){
+        return $this->belongsTo (User::class, 'users_id');
+    }
 }
+

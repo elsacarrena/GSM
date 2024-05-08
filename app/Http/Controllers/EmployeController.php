@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Employe;
-
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Profilemployes;
 use App\Mail\EmployeMailActiver;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Notifications\RegisteredUser;
@@ -105,9 +105,21 @@ class EmployeController extends Controller
             'numero_mere' => 'required|string|max:255',
             'numero_urgence' => 'required|string|max:255',
         ]);
+        $user = Auth::user();
+        $id = $user->id;
 
-        Profilemployes::create($request->all());
-
+        Profilemployes::create([
+            'nom' => $request->nom,
+            'numero' => $request->numero,
+            'domaine' => $request->domaine,
+            'groupe_sanguin'=>$request->groupe_sanguin,
+            'maladie'=>$request->maladie,
+            'localisation' => $request->localisation,
+            'nom_pere'=> $request->nom_pere,
+            'nom_mere'=> $request->nom_mere,
+            'numero_urgence' => $request->numero_urgence,
+            'users_id' =>$id,
+        ]);
         return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
     }
 

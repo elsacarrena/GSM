@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('employe.profilForm') }}" class="btn btn-primary">Ajouter une information dun employe</a>
+                {{-- <a href="{{ route('employe.profilForm') }}" class="btn btn-primary">Ajouter une information dun employe</a> --}}
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -27,11 +27,11 @@
                             <th>Groupe sanguin</th>
                             <th>Maladie</th>
                             <th>Localisation</th>
-                            <th>Nom Pere</th>
-                            <th>Nom Mere</th>
-                            <th>Numero Pere</th>
-                            <th>Numero Mere</th>
-                            <th>Numéro urgence</th>
+                            <th>Nom_Pere</th>
+                            <th>Nom_Mere</th>
+                            <th>Numero_Pere</th>
+                            <th>Numero_Mere</th>
+                            <th>Numéro_urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -51,15 +51,15 @@
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('employe.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier un employé</a>
+                                    <div class="btn-group"><a href="{{ route('employe.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier</a>
 
-                                   <form action="{{ route('employe.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
-                                       @csrf
-                                       @method('DELETE')
-                                       <button type="submit" class="btn btn-sm btn-danger">Supprimer un employé</button>
+                                        <form action="{{ route('employe.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
 
-                                   </form>
-                                </div>
+                                        </form>
+                                    </div>
 
                                 </td>
                             </tr>

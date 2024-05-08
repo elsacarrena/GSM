@@ -169,7 +169,7 @@ class UserController extends Controller
         $findUserById= User::where('id',$id)->first();
         $findUserById->update(['etat_compte' =>1]);
 
-        return redirect('/login')->with('success', 'Vous pouvez vous connecter');
+        return redirect('/login')->with('success', 'Votre compte a été bien activé');
 
     }
 

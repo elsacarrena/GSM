@@ -164,13 +164,13 @@ Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function ()
     Route::get('/stagiaires/profilListe', [StagiaireController::class, 'profilListe'])->name('stagiaires.profilListe');
 
     // Affichage du formulaire de modification d'un profil de stagiaire
-    Route::get('/stagiaires/profil/{profil}/edit', [StagiaireController::class, 'profilEdit'])->name('stagiaires.profilEdit');
+    Route::get('/stagiaires/profil/{id}/edit', [StagiaireController::class, 'profilEdit'])->name('stagiaires.profilEdit');
 
     // Mise à jour des informations d'un profil de stagiaire
-    Route::put('/stagiaires/profil/{profil}', [StagiaireController::class, 'profilUpdate'])->name('stagiaires.profilUpdate');
+    Route::put('/stagiaires/profil/{id}', [StagiaireController::class, 'profilUpdate'])->name('stagiaires.profilUpdate');
 
     // Suppression d'un profil de stagiaire
-    Route::delete('/stagiaires/profil/{profil}', [StagiaireController::class, 'profilDestroy'])->name('stagiaires.profilDestroy');
+    Route::delete('/stagiaires/profil/{id}', [StagiaireController::class, 'profilDestroy'])->name('stagiaires.profilDestroy');
     Route::get('/stagiaires/accueil', [StagiaireController::class, 'accueil'])->name('stagiaires.accueil');
 
 });

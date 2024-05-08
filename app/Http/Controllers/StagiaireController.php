@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Profilstagiaires;
 use App\Http\Middleware\Stagiaire;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\RegisteredUser;
 use Illuminate\Auth\Events\Registered;
@@ -108,8 +110,25 @@ class stagiaireController extends Controller
            'numero_mere' => 'required|string|max:255',
            'numero_urgence' => 'required|string|max:255',
        ]);
+       $user = Auth::user();
+       $id = $user->id;
+       //dd($id);
+       Profilstagiaires::create([
+        'nom' => $request->nom,
+        'numero' => $request->numero,
+        'domaine' => $request->domaine,
+        'groupe_sanguin'=>$request->groupe_sanguin,
+        'maladie'=>$request->maladie,
+        'localisation' => $request->localisation,
+        'nom_pere'=> $request->nom_pere,
+        'nom_mere'=> $request->nom_mere,
+        'numero_pere' => $request->numero_urgence,
+        'numero_mere' => $request->numero_urgence,
+        'numero_urgence' => $request->numero_urgence,
+        'users_id' =>$id,
 
-       Profilstagiaires::create($request->all());
+    ]);
+
 
        return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
 
