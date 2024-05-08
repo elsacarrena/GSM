@@ -24,15 +24,16 @@
                             <th>Nom</th>
                             <th>Numéro</th>
                             <th>Domaine</th>
-                            <th>Groupe sanguin</th>
+                            <th>Groupe_sanguin</th>
                             <th>Maladie</th>
                             <th>Localisation</th>
-                            <th>Nom Pere</th>
-                            <th>Nom Mere</th>
-                            <th>Numero Pere</th>
-                            <th>Numero Mere</th>
-                            <th>Numéro urgence</th>
-                            <th>Actions</th>
+                            <th>Nom_Pere</th>
+                            <th>Nom_Mere</th>
+                            <th>Numero_Pere</th>
+                            <th>Numero_Mere</th>
+                            <th>Numéro_urgence</th>
+                            <th>users_id</th>
+                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,13 +51,14 @@
                                 <td>{{ $profil->numero_pere }}</td>
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
+                                <td>{{ $profil->users_id }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('chef_service.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier un chef de service</a>
+                                    <div class="btn-group"><a href="{{ route('chef_service.profilEdit', ['id'=>$profil->id]) }}" class="btn btn-primary btn-sm">Modifier </a>
 
-                                   <form action="{{ route('chef_service.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                   <form action="{{ route('chef_service.profilDestroy',  ['id'=>$profil->id]) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                        @csrf
                                        @method('DELETE')
-                                       <button type="submit" class="btn btn-sm btn-danger">Supprimer un chef de service</button>
+                                       <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
 
                                    </form>
                                 </div>

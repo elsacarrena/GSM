@@ -22,4 +22,9 @@ class Profilstagiaires extends Model
          'numero_mere',
         'numero_urgence',
     ];
+    protected $primaryKey= 'idprofilstagiaires ';
+
+    public function user(){
+        return $this->belongsTo ( User::class, 'users_id');
+    }
 }

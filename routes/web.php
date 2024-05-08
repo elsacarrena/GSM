@@ -205,13 +205,13 @@ Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(functio
     Route::get('/chef_service/profilListe', [ChefserviceController::class, 'profilListe'])->name('chef_service.profilListe');
 
     // Affichage du formulaire de modification d'un profil de stagiaire
-    Route::get('/chef_service/profil/{profil}/edit', [ChefserviceController::class, 'profilEdit'])->name('chef_service.profilEdit');
+    Route::get('/chef_service/profil/{id}/edit', [ChefserviceController::class, 'profilEdit'])->name('chef_service.profilEdit');
 
     // Mise à jour des informations d'un profil de stagiaire
     Route::put('/chef_service/profil/{profil}', [ChefserviceController::class, 'profilUpdate'])->name('chef_service.profilUpdate');
 
     // Suppression d'un profil de stagiaire
-    Route::delete('/chef_service/profil/{profil}', [ChefserviceController::class, 'profilDestroy'])->name('chef_service.profilDestroy');
+    Route::delete('/chef_service/profil/{id}', [ChefserviceController::class, 'profilDestroy'])->name('chef_service.profilDestroy');
 
     Route::get('/chef_service/accueil', [ChefserviceController::class, 'accueil'])->name('chef_service.accueil');
 

@@ -21,5 +21,11 @@ class Profilchefservice extends Model
         'numero_pere' ,
          'numero_mere',
         'numero_urgence',
+        'users_id',
     ];
+    protected $primaryKey= 'idProfilchefservices ';
+
+    public function user(){
+        return $this->belongsTo ( User::class, 'users_id');
+    }
 }

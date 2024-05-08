@@ -21,4 +21,9 @@ class Profilemployes extends Model
          'numero_mere',
         'numero_urgence',
     ];
+    protected $primaryKey= 'idprofilemployes ';
+
+    public function user(){
+        return $this->belongsTo ( User::class, 'users_id');
+    }
 }
