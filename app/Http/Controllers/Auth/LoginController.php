@@ -97,7 +97,6 @@ class LoginController extends Controller
                             break;
                         case 3:
                             return redirect()->route('chef_service.home');
-                            return redirect()->route('chef_service.home');
                             break;
                         case 4:
                             return redirect()->route('employe.home');
