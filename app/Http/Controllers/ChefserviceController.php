@@ -27,11 +27,9 @@ use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 use App\Models\Profilchefservice;
-use App\Models\Profilchefservice;
 
 
 // use App\Http\Middleware\chefservice;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\RegisteredUser;
