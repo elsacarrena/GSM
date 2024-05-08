@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -51,66 +51,72 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' =>'required',
         ]);
-        if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
+
+        $findUserByEmail= User::where('email',$request->email )->first();
+
+
+        $etat_compte= $findUserByEmail->etat_compte;
+
+        if($etat_compte==1){
+            if(auth()->attempt(array('email'=>$input['email'], 'password'=>$input['password']))){
             // dd(auth()->user()->is_admin);
-            $user_role=auth()->user()->is_admin;
-            if(auth()->user()->first_login == 0){
-                auth()->user()->update([
-                    'first_login' => 1,
-                ]);
-                switch($user_role){
-                    case 1:
-                        return redirect()->route('admin.home');
-                        break;
-                    case 2:
-                        return redirect()->route('superieur.home');
-                        break;
-                    case 3:
-                        return redirect()->route('chefservice.home');
-                        break;
-                    case 4:
-                        return redirect()->route('employe.home');
-                        break;
-                    case 5:
-                        return redirect()->route('stagiaire.home');
-                        break;
-                    default:
+                //dd($etat_compte);
 
-                       return redirect()->route('home');
-                }
-            }elseif(auth()->user()->first_login == 1){
-                switch($user_role){
-                    case 1:
-                        return redirect()->route('admin.home');
-                        break;
-                    case 2:
-                        return redirect()->route('superieur.home');
-                        break;
-                    case 3:
-                        return redirect()->route('chefservice.home');
-                        break;
-                    case 4:
-                        return redirect()->route('employe.home');
-                        break;
-                    case 5:
-                        return redirect()->route('stagiaire.home');
-                        break;
-                    default:
+                $user_role=auth()->user()->is_admin;
+                if(auth()->user()->first_login == 0){
+                    auth()->user()->update([
+                        'first_login' => 1,
+                    ]);
+                    switch($user_role){
+                        case 1:
+                            return redirect()->route('admin.home');
+                            break;
+                        case 2:
+                            return redirect()->route('superieur.home');
+                            break;
+                        case 3:
+                            return redirect()->route('chefservice.profilForm');
+                            break;
+                        case 4:
+                            return redirect()->route('employe.profilForm');
+                            break;
+                        case 5:
+                            return redirect()->route('stagiaire.profilForm');
+                            break;
+                        default:
 
-                       return redirect()->route('home');
+                        return redirect()->route('home');
+                    }
+                }elseif(auth()->user()->first_login == 1){
+                    switch($user_role){
+                        case 1:
+                            return redirect()->route('admin.home');
+                            break;
+                        case 2:
+                            return redirect()->route('superieur.home');
+                            break;
+                        case 3:
+                            return redirect()->route('chefservice.home');
+                            break;
+                        case 4:
+                            return redirect()->route('employe.home');
+                            break;
+                        case 5:
+                            return redirect()->route('stagiaire.home');
+                            break;
+                        default:
+
+                        return redirect()->route('home');
+                    }
                 }
             }
-        }else{
-            return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
+            else{
+                return redirect()->route('login')->with('error', 'Renseignez le bon email ou mot de passe.');
+            }
         }
-
-
-
-
-
-
-
-
+        else{
+            return redirect()->route('login')->with('error', "Votre compte n'est pas activé ou n'existe pas.Consultez vos mails");
+        }
     }
     public function logout(Request $request)
     {
