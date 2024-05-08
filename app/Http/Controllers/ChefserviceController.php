@@ -1,9 +1,49 @@
 <?php
-
 namespace App\Http\Controllers;
+// namespace App\Http\Controllers;
+// use App\Models\Chefservice;
+// use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Chefservice;
+// // use App\Models\Stagiaires;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Str;
+// use Illuminate\Support\Facades\Hash;
+// use App\Notifications\RegisteredUser;
+// use Illuminate\Auth\Events\Registered;
+// use Illuminate\Support\Facades\Redirect;
+// use App\Http\Controllers\Request
+
+// use Illuminate\Support\Facades\Validator;
+
+
+
+
+
+// use App\Http\Middleware\chefservice;
+
+
+
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+
+
+// use App\Http\Middleware\chefservice;
 use App\Models\Profilchefservice;
+use Illuminate\Support\Facades\Hash;
+use App\Notifications\RegisteredUser;
+use Illuminate\Auth\Events\Registered;
+
+
+
+use Illuminate\Support\Facades\Redirect;
+
+
+
+
+
+
+use Illuminate\Support\Facades\Validator;
 
 class ChefserviceController extends Controller
 {
@@ -76,7 +116,7 @@ class ChefserviceController extends Controller
 
  public function profilForm()
  {
-     return view('chef_service.profilform');
+     return view('chef_service.profilForm');
  }
 
  // Fonction pour enregistrer un nouveau profil de stagiaire
@@ -98,21 +138,21 @@ class ChefserviceController extends Controller
 
      Profilchefservice::create($request->all());
 
-     return redirect()->route('chef_service.profilliste')->with('success', 'Profil de chef de service ajouté avec succès!');
+     return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service ajouté avec succès!');
  }
 
  // Fonction pour afficher la liste des profils de chefs de service
  public function profilListe()
  {
      $profils = Profilchefservice::all();
-     return view('chef_service.profilliste', compact('profils'));
+     return view('chef_service.profilListe', compact('profils'));
  }
 
  // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
  public function profilEdit($id)
  {
      $profil = Profilchefservice::findOrFail($id);
-     return view('chef_service.profiledit', compact('profil'));
+     return view('chef_service.profilEdit', compact('profil'));
  }
 
  // Fonction pour mettre à jour un profil de stagiaire
@@ -136,7 +176,7 @@ class ChefserviceController extends Controller
      $profil = Profilchefservice::findOrFail($id);
      $profil->update($request->all());
 
-     return redirect()->route('chef_service.profilliste')->with('success', 'Profil de chef de service mis à jour avec succès!');
+     return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service mis à jour avec succès!');
  }
 
  // Fonction pour supprimer un profil de stagiaire
@@ -145,7 +185,7 @@ class ChefserviceController extends Controller
      $profil = Profilchefservice::findOrFail($id);
      $profil->delete();
 
-     return redirect()->route('chef_service.profilliste')->with('success', 'Profil de chef de service supprimé avec succès');
+     return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service supprimé avec succès');
  }
  public function accueil(){
     return view('chef_service.accueil');

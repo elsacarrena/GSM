@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
+               
                 <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
 
                 @if (session('success'))

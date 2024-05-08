@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('employe.profilform') }}" class="btn btn-primary">Ajouter une information dun employe</a>
+                <a href="{{ route('employe.profilForm') }}" class="btn btn-primary">Ajouter une information dun employe</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -51,7 +51,7 @@
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('employe.profiledit', $profil) }}" class="btn btn-primary btn-sm">Modifier un employé</a>
+                                    <div class="btn-group"><a href="{{ route('employe.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier un employé</a>
 
                                    <form action="{{ route('employe.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                        @csrf

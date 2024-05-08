@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('chef_service.profilform') }}" class="btn btn-primary">Ajouter une information d'un chef de service</a>
+                <a href="{{ route('chef_service.profilForm') }}" class="btn btn-primary">Ajouter une information d'un chef de service</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -51,7 +51,7 @@
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
                                 <td>
-                                    <div class="btn-group"><a href="{{ route('chef_service.profiledit', $profil) }}" class="btn btn-primary btn-sm">Modifier un chef de service</a>
+                                    <div class="btn-group"><a href="{{ route('chef_service.profilEdit', $profil) }}" class="btn btn-primary btn-sm">Modifier un chef de service</a>
 
                                    <form action="{{ route('chef_service.profilDestroy', $profil) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                        @csrf

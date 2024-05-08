@@ -86,7 +86,7 @@ class EmployeController extends Controller
        // Fonction pour afficher le formulaire pour ajouter un nouveau profil de stagiaire
     public function profilForm()
     {
-        return view('employe.profilform');
+        return view('employe.profilForm');
     }
 
     // Fonction pour enregistrer un nouveau profil de stagiaire
@@ -108,21 +108,21 @@ class EmployeController extends Controller
 
         Profilemployes::create($request->all());
 
-        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire ajouté avec succès!');
+        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
     }
 
     // Fonction pour afficher la liste des profils de stagiaires
     public function profilListe()
     {
         $profils = Profilemployes::all();
-        return view('employe.profilliste', compact('profils'));
+        return view('employe.profilListe', compact('profils'));
     }
 
     // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
     public function profilEdit($id)
     {
         $profil = Profilemployes::findOrFail($id);
-        return view('employe.profiledit', compact('profil'));
+        return view('employe.profilEdit', compact('profil'));
     }
 
     // Fonction pour mettre à jour un profil de stagiaire
@@ -146,7 +146,7 @@ class EmployeController extends Controller
         $profil = Profilemployes::findOrFail($id);
         $profil->update($request->all());
 
-        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire mis à jour avec succès!');
+        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire mis à jour avec succès!');
     }
 
     // Fonction pour supprimer un profil de stagiaire
@@ -155,7 +155,7 @@ class EmployeController extends Controller
         $profil = Profilemployes::findOrFail($id);
         $profil->delete();
 
-        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire supprimé avec succès');
+        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire supprimé avec succès');
     }
     public function accueil(){
         return view('employe.accueil');

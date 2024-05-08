@@ -60,7 +60,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Ajouter un profil employe</button>
-                    <a href="{{ route('employe.profilliste') }}" class=" btn btn-danger"> Revenir a la liste des infos dun employé</a>
+                    <a href="{{ route('employe.profilListe') }}" class=" btn btn-danger"> Revenir a la liste des infos dun employé</a>
 
                 </form>
             </div>

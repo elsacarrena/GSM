@@ -60,7 +60,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Ajouter un profil chef de service</button>
-                    <a href="{{ route('chef_service.profilliste') }}" class=" btn btn-danger"> Revenir a la liste des infos d'un chef de service</a>
+                    <a href="{{ route('chef_service.profilListe') }}" class=" btn btn-danger"> Revenir a la liste des infos d'un chef de service</a>
 
                 </form>
             </div>

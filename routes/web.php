@@ -1,4 +1,4 @@
- <?php
+<?php
 
 use App\Http\Controllers\Chefservice;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +54,18 @@ Route::get('/registerstagiaires', function(){
     return view('auth/registerstagiaires');
 })->name('registerstagiaires');
 Route::post('/register_stagiaires', [UserController::class, 'registerStagiaire'])->name('registerstagiaires');
+
+Route::get('/inscription_chefservice', function(){
+    return view('auth/inscription_chefservice');
+  })->name(' inscription_chefservice');
+Route::post('/inscription_chefservice', [UserController::class, 'registerChefservice'])->name('inscription_chefservice');
+
+
+Route::get('/inscription_superieur', function(){
+    return view('auth/inscription_superieur');
+    })->name('inscription_superieur ');
+Route::post('/inscription_superieur', [UserController::class, 'registerSuperieur'])->name('inscription_superieur');
+
 
 
 // Route de confirmation de l'inscription
