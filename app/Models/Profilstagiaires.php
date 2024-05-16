@@ -24,7 +24,7 @@ class Profilstagiaires extends Model
         'users_id',
     ];
 
-    protected $primaryKey= 'idProfilstagiaires';
+    protected $primaryKey= 'id';
 
     public function users(){
         return $this->belongsTo (User::class, 'users_id');

@@ -1,50 +1,31 @@
 <?php
+
 namespace App\Http\Controllers;
-// namespace App\Http\Controllers;
-// use App\Models\Chefservice;
-// use Illuminate\Http\Request;
+
+use Exception;
 use App\Models\User;
+use App\Models\Employe;
+use App\Models\Stagiaire;
+use App\Models\Superieur;
 use App\Models\Chefservice;
 use Illuminate\Support\Str;
-// // use App\Models\Stagiaires;
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\Hash;
-// use App\Notifications\RegisteredUser;
-// use Illuminate\Auth\Events\Registered;
-// use Illuminate\Support\Facades\Redirect;
-// use App\Http\Controllers\Request
-
-// use Illuminate\Support\Facades\Validator;
-
-
-
-
-
-// use App\Http\Middleware\chefservice;
-
-
-
 use Illuminate\Http\Request;
+use App\Models\Profilemployes;
+use App\Mail\ConfirmemployeMail;
+use App\Models\Profilstagiaires;
 use App\Models\Profilchefservice;
-
-
-// use App\Http\Middleware\chefservice;
+use App\Models\ResetCodePassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Notifications\RegisteredUser;
 use Illuminate\Auth\Events\Registered;
-
-
-
+use App\Mail\ComfirmemployeMailActiver;
 use Illuminate\Support\Facades\Redirect;
-
-
-
-
-
-
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\SendEmailToEmployeAfterRegistrationNotification;
+
 
 class ChefserviceController extends Controller
 {
@@ -124,33 +105,37 @@ class ChefserviceController extends Controller
  public function storeProfil(Request $request)
  {
      $request->validate([
-         'nom' => 'required|string|max:255',
-         'numero' => 'required|string|max:255',
-         'domaine' => 'required|string|max:255',
-         'groupe_sanguin' => 'required|string|max:255',
-         'maladie' => 'required|string|max:255',
-         'localisation' => 'required|string|max:255',
-         'nom_pere' => 'required|string|max:255',
-         'nom_mere' => 'required|string|max:255',
-         'numero_pere' => 'required|string|max:255',
-         'numero_mere' => 'required|string|max:255',
-         'numero_urgence' => 'required|string|max:255',
+        'nom' => 'required|string|max:255',
+     'date_naissance' => 'required|date-time|max:255',
+     'numero' => 'required|string|max:255',
+     'domaine' => 'required|string|max:255',
+     'groupe_sanguin' => 'required|string|max:255',
+     'maladie' => 'required|string|max:255',
+     'situation_matrimoniale' => 'required|string|max:255',
+     'localisation' => 'required|string|max:255',
+     'nom_pere' => 'required|string|max:255',
+     'nom_mere' => 'required|string|max:255',
+     'numero_pere' => 'required|string|max:255',
+     'numero_mere' => 'required|string|max:255',
+     'numero_urgence' => 'required|string|max:255',
      ]);
      $user = Auth::user();
      $id = $user->id;
      Profilchefservice::create([ // Utilisation de  Profilchefservice::create() pour créer un nouvel  chefservice
-        'nom' => $request->nom,
-        'numero' => $request->numero,
-        'domaine' => $request->domaine,
-        'groupe_sanguin' => $request->groupe_sanguin,
-        'maladie' => $request->maladie,
-        'localisation' => $request->localisation,
-        'nom_pere' => $request->nom_pere,
-        'nom_mere' => $request->nom_mere,
-        'numero_pere' => $request->numero_pere,
-        'numero_mere' => $request->numero_mere,
-        'numero_urgence' => $request->numero_urgence,
-        'users_id'=>$id,
+            'nom' => $request->nom,
+            'date_naissance' => $request->date_naissance,
+            'numero' => $request->numero,
+            'domaine' => $request->domaine,
+            'groupe_sanguin'=>$request->groupe_sanguin,
+            'maladie'=>$request->maladie,
+            'situation_matrimoniale' => $request->situation_matrimoniale,
+            'localisation' => $request->localisation,
+            'nom_pere'=> $request->nom_pere,
+            'nom_mere'=> $request->nom_mere,
+            'numero_pere'=> $request->numero_pere,
+            'numero_mere'=> $request->numero_mere,
+            'numero_urgence' => $request->numero_urgence,
+            'users_id' =>$id,
     ]);
 
      return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service ajouté avec succès!');
@@ -166,7 +151,9 @@ class ChefserviceController extends Controller
  // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
  public function profilEdit($id)
  {
-     $profil = Profilchefservice::findOrFail($id);
+    //dd($id);
+    $profil = Profilchefservice::where('id', $id)->first();
+     //$profil = Profilchefservice::findOrFail(3);
      return view('chef_service.profilEdit', compact('profil'));
  }
 
@@ -174,18 +161,19 @@ class ChefserviceController extends Controller
  public function profilUpdate(Request $request, $id)
  {
      $request->validate([
-         'nom' => 'required|string|max:255',
-         'numero' => 'required|string|max:255',
-         'domaine' => 'required|string|max:255',
-         'type' => 'required|string|max:255',
-         'groupe_sanguin' => 'required|string|max:255',
-         'maladie' => 'required|string|max:255',
-         'localisation' => 'required|string|max:255',
-         'nom_pere' => 'required|string|max:255',
-         'nom_mere' => 'required|string|max:255',
-         'numero_pere' => 'required|string|max:255',
-         'numero_mere' => 'required|string|max:255',
-         'numero_urgence' => 'required|string|max:255',
+        'nom' => 'required|string|max:255',
+        'date_naissance' => 'required|date-time|max:255',
+        'numero' => 'required|string|max:255',
+        'domaine' => 'required|string|max:255',
+        'groupe_sanguin' => 'required|string|max:255',
+        'maladie' => 'required|string|max:255',
+        'situation_matrimoniale' => 'required|string|max:255',
+        'localisation' => 'required|string|max:255',
+        'nom_pere' => 'required|string|max:255',
+        'nom_mere' => 'required|string|max:255',
+        'numero_pere' => 'required|string|max:255',
+        'numero_mere' => 'required|string|max:255',
+        'numero_urgence' => 'required|string|max:255',
      ]);
 
      $profil = Profilchefservice::findOrFail($id);
@@ -202,10 +190,55 @@ class ChefserviceController extends Controller
 
      return redirect()->route('chef_service.profilListe')->with('success', 'Profil de chef de service supprimé avec succès');
  }
+
  public function accueil(){
     return view('chef_service.accueil');
  }
 
+public function ajoutstagiaire(){
+    return view('stagiaires.ajoutstagiaire');
+}
+public function ajoutemploye(){
+    return view('employe.ajoutemploye');
+}
+public function storeEmploye(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+    ]);
+//dd($request);
+    try {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('default');
+        $user->is_admin = 4; // Rôle d'organisateur
+        $user->save();
+
+        // Envoyer un email pour que l'organisateur puisse confirmer son compte
+
+        // Envoyer un code par email pour vérification
+        if ($user) {
+            try {
+                ResetCodePassword::where('email', $user->email)->delete();
+                $code = rand(1000, 4000);
+                $data = [
+                    'code' => $code,
+                    'email' => $user->email
+                ];
+                ResetCodePassword::create($data);
+                Notification::route('mail', $user->email)->notify(new SendEmailToEmployeAfterRegistrationNotification($code, $user->email));
+
+                return redirect()->route('chef_service.index')->with('success_message', 'Employé ajouté');
+            } catch (Exception $e) {
+                throw new Exception('Une erreur est survenue lors de l\'envoi du mail');
+            }
+        }
+    } catch (Exception $e) {
+        throw new Exception('Une erreur est survenue lors de la création de cet employé');
+    }
+}
 }
 
 

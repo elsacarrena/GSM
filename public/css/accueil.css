@@ -1,0 +1,57 @@
+body {
+    /* background-image: url('/logo.png'); */
+    background-size: cover;
+    /* background-position: center; */
+    /* max-width: 200px; */
+    /* max-height: 100px; */
+}
+
+.logo {
+    float: right;
+    background-image: url('/logo.png');
+    background-size: contain; /* Réduire la taille du logo pour s'adapter */
+    width: 350px; /* Largeur du logo */
+    height: auto; /* Hauteur ajustée automatiquement */
+    margin-left: 20px; /* Marge à gauche pour séparer le texte */
+}
+
+.container {
+    padding: 20px;
+    /* text-align: center; */ /* Ne pas centrer tout le contenu */
+    color: white;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Centrer le texte */
+}
+
+h2 {
+    color: black;
+}
+
+p {
+    font-size: 18px;
+}
+
+h3 {
+    color:black;
+    margin-top: 30px;
+}
+/* CSS pour aligner les éléments de la classe "notre-equipe" verticalement */
+.notre-equipe {
+    display: flex; /* Utilise le modèle de boîte flexible */
+    flex-direction: column; /* Aligne les éléments en colonne */
+}
+
+/* Ajoute un espace entre chaque élément */
+.notre-equipe p {
+    margin-bottom: 10px;
+}
+
+
+body{
+    background-color: darkgreen;
+}

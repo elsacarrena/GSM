@@ -32,7 +32,7 @@ class Employe
             return redirect()->route('chefservice.home');
         }
         if(auth()->user()->is_admin==5){
-            return redirect()->route('stagiaire.home');
+            return redirect()->route('stagiaires.home');
         }
 
         else{

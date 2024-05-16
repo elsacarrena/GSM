@@ -38,7 +38,7 @@
                         <!-- Authentication Links -->
                         @guest
 
-                            
+
                              @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
@@ -68,7 +68,7 @@
                                         {{ __('Ajouter un stagiaire') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('stagiaires.index') }}">
+                                    <a class="dropdown-item" href="{{ route('stagiaires.profilListe') }}">
                                         {{ __('Liste des stagiaires') }}
                                     </a>
 

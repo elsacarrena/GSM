@@ -83,10 +83,9 @@ Route::prefix('superieur')->middleware(['auth', 'superieur'])->group(function ()
     Route::get('/superieur/home', [App\Http\Controllers\HomeController::class, 'superieurHome'])->name('superieur.home');
     Route::get('/superieur/accueil', [SuperieurController::class, 'accueil'])->name('superieur.accueil');
 
- // Routes pour la gestion des stagiaires
- Route::get('/stagiaires/create', [StagiaireController::class, 'create'])->name('stagiaires.create');
- Route::get('/stagiaires', [StagiaireController::class, 'index'])->name('stagiaires.index');
- Route::get('/superieur/accueil', [SuperieurController::class, 'accueil'])->name('superieur.accueil');
+
+
+
 });
 
 Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
@@ -129,11 +128,12 @@ Route::prefix('employe')->middleware(['auth', 'employe'])->group(function () {
         // Suppression d'un profil de stagiaire
         Route::delete('/employe/profil/{profil}', [EmployeController::class, 'profilDestroy'])->name('employe.profilDestroy');
         Route::get('/employe/accueil', [EmployeController::class, 'accueil'])->name('employe.accueil');
+        Route::get('/employe/ajoutchefservice', [EmployeController::class, 'ajoutchefservice'])->name('employe.ajoutchefservice');
 
 });
 
 Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function () {
-    Route::get('/stagiaire/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaire.home');
+    Route::get('/stagiaires/home', [App\Http\Controllers\HomeController::class, 'stagiaireHome'])->name('stagiaires.home');
     // Affichage de la liste des   stagiaires
    Route::get('/stagiaires/index', [StagiaireController ::class, 'index'])->name('stagiaires.index');
 
@@ -173,6 +173,11 @@ Route::prefix('stagiaire')->middleware(['auth', 'stagiaire'])->group(function ()
     Route::delete('/stagiaires/profil/{id}', [StagiaireController::class, 'profilDestroy'])->name('stagiaires.profilDestroy');
     Route::get('/stagiaires/accueil', [StagiaireController::class, 'accueil'])->name('stagiaires.accueil');
 
+   // Route::get('/stagiaires/ajoutchefservice', [StagiaireController::class, 'ajoutchefservice'])->name('stagiaires.ajoutchefservice');
+    //Route::post('/employe/store', [SuperieurController::class, 'storeEmploye'])->name('employe.store');
+    //Route::put('/update/{employe}',[SuperieurController::class,"updateEmploye"])->name('employe.updatee') ;
+    //Route::get('/delete/{employe}',[SuperieurController::class,"deleteEmploye"])->name(' employe.delete') ;
+
 });
 
 
@@ -208,13 +213,26 @@ Route::prefix('chefservice')->middleware(['auth', 'chefservice'])->group(functio
     Route::get('/chef_service/profil/{id}/edit', [ChefserviceController::class, 'profilEdit'])->name('chef_service.profilEdit');
 
     // Mise à jour des informations d'un profil de stagiaire
-    Route::put('/chef_service/profil/{profil}', [ChefserviceController::class, 'profilUpdate'])->name('chef_service.profilUpdate');
-
+    Route::put('/chef_service/profil/{id}', [ChefserviceController::class, 'profilUpdate'])->name('chef_service.profilUpdate');
     // Suppression d'un profil de stagiaire
+
     Route::delete('/chef_service/profil/{id}', [ChefserviceController::class, 'profilDestroy'])->name('chef_service.profilDestroy');
+
 
     Route::get('/chef_service/accueil', [ChefserviceController::class, 'accueil'])->name('chef_service.accueil');
 
+
+    Route::get('/stagiaires/ajoutstagiaire', [ChefserviceController::class, 'ajoutstagiaire'])->name('stagiaires.ajoutstagiaire');
+    Route::post('/stagiaires/store', [ChefserviceController::class, 'storeStagiaire'])->name('stagiaires.storeStagiaire');
+    Route::put('/update/{stagiaire}',[ChefserviceController::class,"updateStagiaire"])->name('stagiaires.updateStagiaire') ;
+    Route::get('/delete/{stagiaire}',[ChefserviceController::class,"deleteStagiaire"])->name(' stagiaires.deleteStagiaire') ;
+
+    Route::get('/employe/ajoutemploye', [ChefserviceController::class, 'ajoutemploye'])->name('employe.ajoutemploye');
+    Route::post('/employe/store', [ChefserviceController::class, 'storeEmploye'])->name('employe.storeEmploye');
+
+    //Route::get('/chef_service/storeEmploye', [ChefserviceController::class, 'storeEmploye'])->name('chef_service.storeEmploye');
+    Route::put('/update/{employe}',[ChefserviceController::class,"updateEmploye"])->name('employe.updateEmploye') ;
+    Route::get('/delete/{employe}',[ChefserviceController::class,"deleteEmploye"])->name(' employe.deleteEmploye') ;
 
   });
 

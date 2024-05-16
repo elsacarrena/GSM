@@ -46,12 +46,7 @@ public function stagiaireHome()
     return view('stagiaires/stagiaire-home', compact('role'));
 }
 
-    // public function employeHome(){
-    //     return view('employe-home');
-    // }
-    // public function stagiaireHome(){
-    //     return view('stagiaire-home');
-    // }
+ 
 
 
 

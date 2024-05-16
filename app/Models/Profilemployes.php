@@ -23,7 +23,7 @@ class Profilemployes extends Model
         'users_id',
     ];
 
-    protected $primaryKey= 'idProfilemployes';
+    protected $primaryKey= 'id';
 
     public function users(){
         return $this->belongsTo (User::class, 'users_id');

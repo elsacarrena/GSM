@@ -34,7 +34,7 @@ class Superieur
             return redirect()->route('employe.home');
         }
         if(auth()->user()->is_admin==5){
-            return redirect()->route('stagiaire.home');
+            return redirect()->route('stagiaires.home');
         }
         else{
             return redirect ('home')->with('error', "Vous n\'avez pas le droit de supérieur");

@@ -1,24 +1,16 @@
 <?php
 
-// namespace App\Http\Controllers;
-// use App\Models\User;
-// use App\Models\Superieur;
-
-// use Illuminate\Support\Str;
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Hash;
-// use App\Notifications\RegisteredUser;
-// use Illuminate\Auth\Events\Registered;
-// use Illuminate\Support\Facades\Redirect;
-// use Illuminate\Support\Facades\Validator;
-// use Illuminate\Foundation\Auth\RegistersUsers;
-
 namespace App\Http\Controllers;
-
 use App\Models\User;
+use App\Models\Employe;
 use App\Models\Superieur;
+use App\Models\Chefservice;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Profilemployes;
+use App\Models\Profilstagiaires;
+use App\Models\Profilchefservice;
+use App\Http\Middleware\Stagiaire;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\RegisteredUser;
 use Illuminate\Auth\Events\Registered;
@@ -37,6 +29,6 @@ class SuperieurController extends Controller
         return view('superieur.accueil');
      }
 
-
+    
 
 }

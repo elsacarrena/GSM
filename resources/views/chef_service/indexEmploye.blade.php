@@ -1,15 +1,16 @@
-@extends('layouts.stagiaire')
+@extends('layouts.employe')
 
 @section('content')
 <div class="container">
 
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Liste des stagiaires</div>
+            <div class="card-header">Liste du personnel</div>
 
             <div class="card-body">
-                <link href="{{ asset('css/index_chefservice.css') }}" rel="stylesheet">
-                <a href="{{ route('stagiaires.create') }}" class="btn btn-primary">Ajouter un stagiaire</a>
+                <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+                <a href="{{ route('employe.create') }}" class="btn btn-primary">Ajouter un employé</a>
+
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -23,30 +24,27 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
-                            <th>localisation</th>
+                             <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($stagiaires as $stagiaires)
+                        @foreach ($employes as $employe)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $stagiaires->nom}}</td>
-                                <td>{{ $stagiaires->numero}}</td>
-                                <td>{{ $stagiaires->domaine}}</td>
-                                 <td>{{ $stagiaires->localisation}}</td>
-                                 <td>{{ $stagiaires->numero_urgence }}</td>
+                                <td>{{ $employe->nom}}</td>
+                                <td>{{ $employe->numero}}</td>
+                                <td>{{ $employe->domaine}}</td>
+                                  <td>{{ $employe->localisation}}</td>
+                                 <td>{{ $employe->numero_urgence }}</td>
                                 <td>
-                                    <a href="{{ route('stagiaires.edit', $stagiaires) }}" class="btn btn-primary btn-sm">Modifier un stagiaire</a>
-                                    <form action="{{ route('stagiaires.destroy', $stagiaires ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                    <a href="{{ route('employe.edit', $employe) }}" class="btn btn-primary btn-sm">Modifier un  employe</a>
+                                    <form action="{{route('employe.destroy', $employe ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer un stagiaire</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
                                     </form>
-
-
-
                                 </td>
                             </tr>
                         @endforeach

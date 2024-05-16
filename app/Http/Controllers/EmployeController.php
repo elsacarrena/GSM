@@ -21,6 +21,7 @@ class EmployeController extends Controller
  public function __construct()
  {
      $this->middleware('employe');
+
  }
 
  public function create(){
@@ -94,10 +95,12 @@ class EmployeController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
+            'date_naissance' => 'required|date-time|max:255',
             'numero' => 'required|string|max:255',
             'domaine' => 'required|string|max:255',
             'groupe_sanguin' => 'required|string|max:255',
             'maladie' => 'required|string|max:255',
+            'situation_matrimoniale' => 'required|string|max:255',
             'localisation' => 'required|string|max:255',
             'nom_pere' => 'required|string|max:255',
             'nom_mere' => 'required|string|max:255',
@@ -110,13 +113,17 @@ class EmployeController extends Controller
 
         Profilemployes::create([
             'nom' => $request->nom,
+            'date_naissance' => $request->date_naissance,
             'numero' => $request->numero,
             'domaine' => $request->domaine,
             'groupe_sanguin'=>$request->groupe_sanguin,
             'maladie'=>$request->maladie,
+            'situation_matrimoniale' => $request->situation_matrimoniale,
             'localisation' => $request->localisation,
             'nom_pere'=> $request->nom_pere,
             'nom_mere'=> $request->nom_mere,
+            'numero_pere'=> $request->numero_pere,
+            'numero_mere'=> $request->numero_mere,
             'numero_urgence' => $request->numero_urgence,
             'users_id' =>$id,
         ]);
@@ -142,11 +149,12 @@ class EmployeController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
+            'date_naissance' => 'required|date-time|max:255',
             'numero' => 'required|string|max:255',
             'domaine' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
             'groupe_sanguin' => 'required|string|max:255',
             'maladie' => 'required|string|max:255',
+            'situation_matrimoniale' => 'required|string|max:255',
             'localisation' => 'required|string|max:255',
             'nom_pere' => 'required|string|max:255',
             'nom_mere' => 'required|string|max:255',
@@ -204,13 +212,5 @@ class EmployeController extends Controller
         ]);
     }
 
-    // protected function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'password' => Hash::make($data['password']),
-    //         'confirmation_token' => Str::random(32),
-    //     ]);
-    // }
+
 }

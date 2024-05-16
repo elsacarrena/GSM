@@ -71,9 +71,6 @@
                                     <a class="dropdown-item" href="{{ route('employe.create') }}">
                                         {{ __('Ajouter un  employé') }}
                                     </a>
-
-
-
                                     <a class="dropdown-item" href="{{ route('employe.profilListe') }}">
                                         {{ __('Liste des employés') }}
                                     </a>
