@@ -64,15 +64,23 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                    {{--  <a class="dropdown-item" href="{{ route('stagiaires.creation') }}">
+                                        {{ __('Ajouter un stagiaire par le superieur') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('stagiaires.create') }}">
                                         {{ __('Ajouter un stagiaire') }}
-                                    </a>
+                                    </a>  --}}
 
                                     <a class="dropdown-item" href="{{ route('stagiaires.profilliste') }}">
                                         {{ __('Liste des stagiaires') }}
                                     </a>
-
-
+                                    {{--  <a class="dropdown-item" href="{{ route('stagiaires.profilliste') }}">
+                                        {{ __('Liste des stagiaires') }}
+                                    </a>  --}}
+                                     
+                                    <a class="dropdown-item" href="{{ route('stagiaires.create') }}">
+                                        {{ __('Ajout de stagiaire') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

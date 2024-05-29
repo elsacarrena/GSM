@@ -15,4 +15,10 @@ class Chefservice extends Model
         'creativite', 'engagement', 'motivation', 'initiative', 
         'sociabilite', 'gout_risque', 'autres_appreciations'
     ];
+    protected $primaryKey= 'id';
+
+    public function users(){
+        return $this->belongsTo (User::class, 'users_id');
+
+    }
 }

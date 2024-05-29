@@ -22,3 +22,6 @@
 
 
 
+    Merci,<br>
+    {{ config('app.name') }}
+</xmail::message>

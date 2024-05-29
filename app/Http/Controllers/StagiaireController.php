@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class stagiaireController extends Controller
+class StagiaireController extends Controller
 {
     // Ajout du middleware 'stagiaire' au constructeur
     public function __construct()

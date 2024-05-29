@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Exception;
 use App\Models\User;
 use App\Models\Employe;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Profilemployes;
 use App\Mail\EmployeMailActiver;
+use App\Models\ResetCodePassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -15,13 +17,19 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\submitDefineAccessRequest;
+use App\Notifications\SendEmailToEmployeAfterRegistrationNotification;
+use App\Notifications\SendEmailToStagiaireAfterRegistrationNotification;
+use App\Notifications\SendEmailToChefserviceAfterRegistrationNotification;
+
 class EmployeController extends Controller
 {
     // Ajout du middleware 'employe' au constructeur
+
  public function __construct()
  {
-     $this->middleware('employe');
 
+     $this->middleware('employe');
  }
 
  public function create(){
@@ -57,7 +65,7 @@ class EmployeController extends Controller
          'numero_urgence' => $request->numero_urgence,
      ]);
 
-     return redirect()->route('employe.index')->with('success', 'Employé ajouté avec succès!');
+     return redirect()->route('employe.index')->with('success', 'Collaborateur ajouté avec succès!');
  }
 
  public function edit($id)
@@ -68,6 +76,8 @@ class EmployeController extends Controller
 
  public function update(Request $request, $id)
  {
+
+    //  dd($request->all());
      $request->validate([
         'nom' => 'required|string',
         'numero' => 'required|string',
@@ -79,9 +89,11 @@ class EmployeController extends Controller
      ]);
 
      $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
+    //  dd($employe);
      $employe->update($request->all());
-
-     return redirect()->route('employe.index')->with('success', 'Employé modifié avec succès!');
+    //  dd($employe);
+     //dd($employe); // Pour voir les données de l'employé après mise à jour
+     return redirect()->route('employe.index')->with('success', 'Collaborateur modifié avec succès!');
  }
 
  public function destroy($id)
@@ -89,7 +101,7 @@ class EmployeController extends Controller
      $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
      $employe->delete();
 
-     return redirect()->route('employe.index')->with('success', 'Employé supprimé avec succès');
+     return redirect()->route('employe.index')->with('success', ' Collaborateur supprimé avec succès');
  }
        // Fonction pour afficher le formulaire pour ajouter un nouveau profil de stagiaire
     public function profilForm()
@@ -150,6 +162,7 @@ class EmployeController extends Controller
         $profil = Profilemployes::findOrFail($id);
         return view('employe.profiledit', compact('profil'));
     }
+
 
     // Fonction pour mettre à jour un profil de stagiaire
     public function profilUpdate(Request $request, $id)

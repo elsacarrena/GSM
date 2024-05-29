@@ -68,28 +68,35 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('employe.create') }}">
-                                        {{ __('Ajouter un  employé') }}
+                                    <a class="dropdown-item" href="{{ route('employe.creation') }}">
+                                        {{ __('Ajouter un nouvel employé') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('employe.profilListe') }}">
-                                        {{ __('Liste des employés') }}
+                                    <a class="dropdown-item" href="{{ route('superieur.IndexEmploye') }}">
+                                        {{ __('Liste info employes moins personnelle') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('chef_service.create') }}">
+
+                                    <a class="dropdown-item" href="{{ route('superieur.index') }}">
+                                        {{ __('Liste des info personnel_employés') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('chef_service.creation') }}">
                                         {{ __('Ajouter un chef de service') }}
                                     </a>
-                                    {{-- <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
-                                        {{ __('Liste des chefs de service') }}
-                                    </a> --}}
+                                    <a class="dropdown-item" href="{{ route('superieur.IndexChefservice') }}">
+                                        {{ __('Liste des infos moins personnelles des chefs de service') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('superieur.profilListeChefservice') }}">
+                                        {{ __('Liste info  personnelle chefservices ') }}
+                                    </a>
+        
 
-
-                                    <a class="dropdown-item" href="{{ route('stagiaires.create') }}">
+                                    <a class="dropdown-item" href="{{ route('stagiaires.creation') }}">
                                         {{ __('Ajouter un  stagiaire') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('stagiaires.profilListe') }}">
-                                        {{ __('Liste des stagiaires') }}
+                                    <a class="dropdown-item" href="{{ route('superieur.profilListeStagiaire') }}">
+                                        {{ __('Liste des infos  personnelles des stagiaires') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('superieur.appreciation') }}">
-                                        {{ __('Ajouter une  appréciation') }}
+                                    <a class="dropdown-item" href="{{ route('superieur.IndexStagiaire') }}">
+                                        {{ __('Liste info stagiaire moins personnelle') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

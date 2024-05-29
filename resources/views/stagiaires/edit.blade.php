@@ -38,12 +38,28 @@
                 <input type="date-time" name="date_additionnelle" id="date_additionnelle" class="form-control"  value="{{ $stagiaire->date_additionnelle}}" required>
             </div>
             <div class="form-group">
+                <label for="date_debut">Date de prise de service : <span class="required">*</span></label>
+                <input type="date" name="date_debut" id="date_debut" class="form-control"  value="{{$stagiaire->date_debut}}" required>
+
+                {{--  <input type="date" class="form-control" id="date_debut"value="{{$employe->date_debut }}" required>  --}}
+            </div>
+
+            <div class="form-group">
+                <label for="date_fin">Date de fin de service: <span class="required">*</span></label>
+                <input type="date" name="date_fin" id="date_debut" class="form-control"  value="{{$stagiaire->date_fin}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date_additionnelle">Date additionnelle: <span class="required">*</span></label>
+                <input type="date" name="date_additionnelle" id="date_additionnelle" class="form-control"  value="{{$stagiaire->date_additionnelle}}" required>
+            </div>
+            <div class="form-group">
                 <label for="localisation"> Votre  Localisation </label>
                 <input type="text" name="localisation" id="localisation" class="form-control" value="{{$stagiaire->localisation}}" required>
             </div>
 
             <div class="form-group">
-                <label for="numero_urgence"> Numéro à contacter en cas d'urgence </label>
+                <label for="numero_urgence"> Numéro à contacter en cas durgence </label>
                 <input type="text" name="numero_urgence" id="numero_urgence" class="form-control" value="{{$stagiaire->numero_urgence}}" required>
             </div>
 

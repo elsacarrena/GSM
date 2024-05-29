@@ -16,6 +16,10 @@
             <input type="date" name="date_naissance" id="date_naissance" class="form-control" value="{{ $profil->date_naissance }}" required>
         </div>
         <div class="form-group">
+            <label for="date_naissance">Numéro</label>
+            <input type="date" name="date_naissance" id="date_naissance" class="form-control" value="{{ $profil->date_naissance }}" required>
+        </div>
+        <div class="form-group">
             <label for="numero">Numéro</label>
             <input type="text" name="numero" id="numero" class="form-control" value="{{ $profil->numero }}" required>
         </div>

@@ -53,10 +53,14 @@ class ChefserviceController extends Controller
 
  public function store(Request $request)
  {
-     $request->validate([
+    // dd('fgf');
+    $request->validate([
          'nom' => 'required|string',
          'numero' => 'required|string',
          'domaine' => 'required|string',
+         'date_debut' => 'required|date',
+         'date_fin' => 'required|date',
+         'date_additionnelle' => 'required|date',
          'localisation' => 'required|string',
          'numero_urgence' => 'required|string',
      ]);
@@ -66,6 +70,9 @@ class ChefserviceController extends Controller
          'nom' => $request->nom,
          'numero' => $request->numero,
          'domaine' => $request->domaine,
+         'date_debut' => $request->date_debut,
+         'date_fin' => $request->date_fin,
+         'date_additionnelle' => $request->date_additionnelle,
          'localisation' => $request->localisation,
          'numero_urgence' => $request->numero_urgence,
          'users_id'=>$id,
@@ -86,9 +93,13 @@ class ChefserviceController extends Controller
          'nom' => 'required|string',
          'numero' => 'required|string',
          'domaine' => 'required|string',
+         'date_debut' => 'required|date',
+         'date_fin' => 'required|date',
+         'date_additionnelle' => 'required|date',
          'localisation' => 'required|string',
          'numero_urgence' => 'required|string',
      ]);
+
 
      $chefservice = Chefservice::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
      $chefservice->update($request->all());
@@ -114,6 +125,7 @@ class ChefserviceController extends Controller
  {
      $request->validate([
          'nom' => 'required|string|max:255',
+         'date_naissance' => 'required|date|max:255',
          'numero' => 'required|string|max:255',
          'domaine' => 'required|string|max:255',
          'groupe_sanguin' => 'required|string|max:255',
@@ -127,8 +139,9 @@ class ChefserviceController extends Controller
      ]);
      $user = Auth::user();
      $id = $user->id;
-     Profilchefservice::create([ // Utilisation de  Profilchefservice::create() pour créer un nouvel  chefservice
+     Profilchefservice::create([ // Utilisation de  Profilchefservice::create() pour créer un nouvel  chef service
         'nom' => $request->nom,
+        'date_naissance' => $request->date_naissance,
         'numero' => $request->numero,
         'domaine' => $request->domaine,
         'groupe_sanguin' => $request->groupe_sanguin,
@@ -164,6 +177,7 @@ class ChefserviceController extends Controller
  {
      $request->validate([
          'nom' => 'required|string|max:255',
+         'date_naissance' => 'required|date|max:255',
          'numero' => 'required|string|max:255',
          'domaine' => 'required|string|max:255',
          'groupe_sanguin' => 'required|string|max:255',

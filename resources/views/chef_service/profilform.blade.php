@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date_naissance">Date de naissance: <span class="required">*</span></label>
-                        <input type="date-time" class="form-control" id="date_naissance" name="date_naissance" required>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
                     </div>
                     <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>

@@ -18,6 +18,7 @@
                         <label for="nom">Nom: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
+
                     <div class="form-group">
                         <label for=" numero">Numéro: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="numero" name="numero" required>
@@ -42,6 +43,15 @@
                         <input type="date-time" class="form-control" id="date_additionnelle" name="date_additionnelle" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="date_fin">Date de fin de service: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_fin" name="date_fin" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_additionnelle">Date additionnelle: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_additionnelle" name="date_additionnelle" required>
+                    </div>
 
                     <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>

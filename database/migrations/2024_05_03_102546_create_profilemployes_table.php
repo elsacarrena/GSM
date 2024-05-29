@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id( );
 
             $table->string('nom');
+            $table->string('date_naissance');
             $table->string('numero');
             $table->string('domaine');
             $table->date('date_naissance');

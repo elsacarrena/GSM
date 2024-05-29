@@ -10,6 +10,7 @@ class Profilemployes extends Model
     use HasFactory;
     protected $fillable = [
         'nom',
+        'date_naissance',
         'numero' ,
         'domaine' ,
         'date_naissance' ,

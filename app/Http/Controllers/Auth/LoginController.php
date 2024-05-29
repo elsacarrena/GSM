@@ -85,7 +85,7 @@ class LoginController extends Controller
                             return redirect()->route('employe.profilform');
                             break;
                         case 5:
-                            return redirect()->route('stagiaires.profilform');
+                            return redirect()->route('stagiaires.profilForm');
                             break;
                         default:
 

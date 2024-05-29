@@ -24,6 +24,7 @@
                             <th>Nom</th>
                             <th>Date de naissance</th>
                             <th>Numéro</th>
+                            <th>Date_naissance</th>
                             <th>Domaine</th>
                             <th>Groupe sanguin</th>
                             <th>Maladie</th>
