@@ -10,6 +10,7 @@ class Profilemployes extends Model
     use HasFactory;
     protected $fillable = [
         'nom',
+        'date_naissance',
         'numero' ,
         'domaine' ,
          'groupe_sanguin' ,
@@ -23,7 +24,7 @@ class Profilemployes extends Model
         'users_id',
     ];
 
-    protected $primaryKey= 'idProfilemployes';
+    protected $primaryKey= 'id';
 
     public function users(){
         return $this->belongsTo (User::class, 'users_id');

@@ -9,7 +9,7 @@
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-                <a href="{{ route('employe.create') }}" class="btn btn-primary">Ajouter un employé</a>
+                <a href="{{ route('employe.create') }}" class="btn btn-primary">Ajouter un collaborateur</a>
 
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -24,6 +24,7 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
+                            <th>date_debut</th>
                              <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
@@ -36,10 +37,11 @@
                                 <td>{{ $employe->nom}}</td>
                                 <td>{{ $employe->numero}}</td>
                                 <td>{{ $employe->domaine}}</td>
+                                <td>{{ $employe->date_debut}}</td>
                                   <td>{{ $employe->localisation}}</td>
                                  <td>{{ $employe->numero_urgence }}</td>
                                 <td>
-                                    <a href="{{ route('employe.edit', $employe) }}" class="btn btn-primary btn-sm">Modifier un  employe</a>
+                                    <a href="{{ route('employe.edit', $employe) }}" class="btn btn-primary btn-sm">Modifier un collaborateur</a>
                                     <form action="{{route('employe.destroy', $employe ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')

@@ -13,14 +13,16 @@
                 <h1>Les champs avec <span class="required">*</span> sont obligatoires :</h1>
 
                 <form action="{{ route('stagiaires.profilStore') }}" method="POST">
-
-
-
                     @csrf
                     <div class="form-group">
                         <label for="nom">Nom: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="date_naissance">Date naissance: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+                    </div> 
                     <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>
 
@@ -31,7 +33,7 @@
 
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
-              
+
                     <div class="form-group">
                         <label for="groupe_sanguin">Groupe sanguin: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="groupe_sanguin" name="groupe_sanguin" required>

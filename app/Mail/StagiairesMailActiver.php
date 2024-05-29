@@ -25,13 +25,18 @@ public $userName;
 
         public function build()
     {
-        $mail = $this->markdown('mail.stagiairesMailActiver',
-         ['id' => $this->id,
-         'nom' => $this->userName])
-        ->subject('Confirmation de compte');
+        // $mail = $this->markdown('mail.stagiairesMailActiver',
+        //  ['id' => $this->id,
+        //  'nom' => $this->userName])
+        // ->subject('Confirmation de compte');
 
-        return $mail;
+        // return $mail;
 
+        return $this->view('mail.stagiairesMailActiver')
+        ->with([
+            'userName' => $this ->userName ,
+            'id'=> $this->id,
+        ]);
     }
 
 }

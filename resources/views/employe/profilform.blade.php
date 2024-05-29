@@ -5,7 +5,7 @@
     <link href="{{ asset('css/create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Ajouter un nouveau profil d'employé</div>
+            <div class="card-header">Ajouter un nouveau profil de collaborateur</div>
 
             <div class="card-body">
                 <hr>
@@ -16,6 +16,10 @@
                     <div class="form-group">
                         <label for="nom">Nom: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date_naissance">Date_Naissance: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
                     </div>
                     <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>

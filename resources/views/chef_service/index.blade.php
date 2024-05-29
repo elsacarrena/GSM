@@ -24,6 +24,9 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
+                            <th>date_debut</th>
+                            <th>date_fin</th>
+                            <th>date_additionnelle</th>
                              <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
@@ -36,11 +39,16 @@
                                 <td>{{ $chefservices->nom}}</td>
                                 <td>{{ $chefservices->numero}}</td>
                                 <td>{{ $chefservices->domaine}}</td>
+                                <td>{{ $chefservices->date_debut}}</td>
+                                <td>{{ $chefservices-> date_fin}}</td>
+                                <td>{{ $chefservices->date_additionnelle}}</td>
                                  <td>{{ $chefservices->localisation}}</td>
                                  <td>{{ $chefservices->numero_urgence }}</td>
                                 <td>
-                                    <a href="{{ route('chef_service.edit', $chefservices) }}" class="btn btn-primary btn-sm">Modifier un  chef de service</a>
-                                    <form action="{{route('chef_service.destroy', $chefservices ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                    <a href="{{ route('chef_service.edit', $chefservices, ['id'=>$chefservices->id])}}" class="btn btn-primary btn-sm">Modifier un  chef de service</a>
+                                    {{--  <form action="{{route('chef_service.destroy', ['id'=>$chefservices->id]) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">  --}}
+                                        <form action="{{ route('chef_service.destroy', $chefservices->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">Supprimer un chef de service</button>

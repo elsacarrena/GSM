@@ -18,7 +18,10 @@
             <label for="nom">Nom<span class="required">*</span></label>
             <input type="text" name="nom" id="nom" class="form-control" value="{{ $profil->nom }}" required>
         </div>
-
+        <div class="form-group">
+            <label for="date_naissance">date_naissance<span class="required">*</span></label>
+            <input type="date" name="date_naissance" id="date_naissance" class="form-control" value="{{ $profil-> date_naissance }}" required>
+        </div>
         <div class="form-group">
             <label for="numero">Numéro<span class="required">*</span></label>
             <input type="text" name="numero" id="numero" class="form-control" value="{{ $profil->numero }}" required>

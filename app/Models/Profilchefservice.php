@@ -11,6 +11,7 @@ class Profilchefservice extends Model
 
     protected $fillable = [
         'nom',
+        'date_naissance',
         'numero' ,
         'domaine' ,
          'groupe_sanguin' ,
@@ -23,7 +24,7 @@ class Profilchefservice extends Model
         'numero_urgence',
         'users_id',
     ];
-    protected $primaryKey= 'idProfilchefservices ';
+    protected $primaryKey= 'id';
 
     public function user(){
         return $this->belongsTo ( User::class, 'users_id');

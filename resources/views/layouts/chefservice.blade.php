@@ -68,11 +68,14 @@
 
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('chef_service.profilForm') }}">
-                                        {{ __('Ajouter un  chef de service') }}
+                                    {{--  <a class="dropdown-item" href="{{ route('chef_service.creation') }}">
+                                        {{ __('Ajouter un chef de service par le superieur') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('chef_service.create') }}">
+                                        {{ __('Ajouter un  chef de service') }}
+                                    </a>  --}}
 
-                                    <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
+                                    <a class="dropdown-item" href="{{ route('chef_service.index') }}">
                                         {{ __('Liste des chefs services') }}
                                     </a>
 

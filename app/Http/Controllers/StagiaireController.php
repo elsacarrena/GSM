@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class stagiaireController extends Controller
+class StagiaireController extends Controller
 {
     // Ajout du middleware 'stagiaire' au constructeur
     public function __construct()
@@ -44,6 +44,9 @@ class stagiaireController extends Controller
             'nom' => 'required',
             'numero' => 'required',
             'domaine' => 'required',
+            'date_debut' => 'required',
+            'date_fin' => 'required',
+            'date_additionnelle' => 'required',
             'localisation' => 'required',
             'numero_urgence' => 'required',
         ]);
@@ -52,6 +55,9 @@ class stagiaireController extends Controller
             'nom' => $request->nom,
             'numero' => $request->numero,
             'domaine' => $request->domaine,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+            'date_additionnelle' => $request->date_additionnelle,
             'localisation' => $request->localisation,
             'numero_urgence' => $request->numero_urgence,
         ]);
@@ -72,6 +78,9 @@ class stagiaireController extends Controller
             'nom' => 'required|string',
             'numero' => 'required|string',
             'domaine' => 'required|string',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
+            'date_additionnelle' => 'required|date',
             'localisation' => 'required|string',
             'numero_urgence' => 'required|string',
         ]);
@@ -99,6 +108,7 @@ class stagiaireController extends Controller
    {
        $request->validate([
            'nom' => 'required|string|max:255',
+           'date_naissance' => 'required|date|max:255',
            'numero' => 'required|string|max:255',
            'domaine' => 'required|string|max:255',
            'groupe_sanguin' => 'required|string|max:255',
@@ -115,6 +125,7 @@ class stagiaireController extends Controller
        //dd($id);
        Profilstagiaires::create([
         'nom' => $request->nom,
+        'date_naissance' => $request->date_naissance,
         'numero' => $request->numero,
         'domaine' => $request->domaine,
         'groupe_sanguin'=>$request->groupe_sanguin,
@@ -153,9 +164,9 @@ class stagiaireController extends Controller
    {
        $request->validate([
            'nom' => 'required|string|max:255',
+           'date_naissance' => 'required|date|max:255',
            'numero' => 'required|string|max:255',
            'domaine' => 'required|string|max:255',
-           'type' => 'required|string|max:255',
            'groupe_sanguin' => 'required|string|max:255',
            'maladie' => 'required|string|max:255',
            'localisation' => 'required|string|max:255',

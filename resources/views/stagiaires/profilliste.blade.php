@@ -23,6 +23,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>Nom</th>
+                                <th>Date_naissance</th>
                                 <th>Numéro</th>
                                 <th>Domaine</th>
                                 <th>Groupe sanguin</th>
@@ -42,6 +43,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $profil->nom }}</td>
+                                    <td>{{ $profil->date_naissance }}</td>
                                     <td>{{ $profil->numero }}</td>
                                     <td>{{ $profil->domaine }}</td>
                                     <td>{{ $profil->groupe_sanguin }}</td>

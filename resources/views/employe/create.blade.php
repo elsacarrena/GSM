@@ -5,7 +5,7 @@
     <link href="{{ asset('css/create.css') }}" rel="stylesheet">
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Ajouter un nouvel employé</div>
+            <div class="card-header">Ajouter un nouveau collaborateur</div>
 
             <div class="card-body">
                 <hr>
@@ -26,6 +26,12 @@
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
                     <div class="form-group">
+                        <label for="date_debut">Date de prise de service: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_debut" name="date_debut" required>
+                    </div>
+
+
+                    <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="localisation" name="localisation" required>
                     </div>
@@ -35,8 +41,8 @@
                         <input type="text" class="form-control" id="numero_urgence" name="numero_urgence" required>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Ajouter un employé</button>
-                    <a href="{{ route('employe.index') }}" class=" btn btn-danger">Revenir a la liste des employés</a>
+                    <button type="submit" class="btn btn-primary">Ajouter un collaborateur</button>
+                    <a href="{{ route('employe.index') }}" class=" btn btn-danger">Revenir a la liste des collaborateurs</a>
                 </form>
             </div>
         </div>

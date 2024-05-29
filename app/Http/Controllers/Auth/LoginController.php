@@ -81,7 +81,7 @@ class LoginController extends Controller
                             return redirect()->route('employe.profilForm');
                             break;
                         case 5:
-                            return redirect()->route('stagiaire.profilForm');
+                            return redirect()->route('stagiaires.profilForm');
                             break;
                         default:
 
@@ -96,7 +96,7 @@ class LoginController extends Controller
                             return redirect()->route('superieur.home');
                             break;
                         case 3:
-                            return redirect()->route('chef_service.home');
+                            return redirect()->route('chefservice.home');
                             break;
                         case 4:
                             return redirect()->route('employe.home');

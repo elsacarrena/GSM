@@ -18,6 +18,10 @@
                         <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
                     <div class="form-group">
+                        <label for="date_naissance">Date_Naissance: <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+                    </div>
+                    <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="numero" name="numero" required>
                     </div>

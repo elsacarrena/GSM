@@ -15,7 +15,7 @@
                     @endif
                     <h3>Bienvenue sur la page des Employés</h3>
                     {{ __('Vous etes connecté!') }}
-                    
+                    <a href="{{ route('employe.create') }}" class="btn btn-danger"> Ajouter un employé </a>
                 </div>
             </div>
         </div>

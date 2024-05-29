@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('profilchefservices', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('date_naissance');
             $table->string('numero');
             $table->string('domaine');
             $table->string('groupe_sanguin');

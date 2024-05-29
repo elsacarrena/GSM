@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('numero');
             $table->string('domaine');
+            $table->string('date_debut');
+           
             $table->string('localisation');
             $table->string('numero_urgence');
             $table->timestamps();

@@ -11,6 +11,7 @@ class Profilstagiaires extends Model
 
     protected $fillable = [
         'nom',
+        'date_naissance',
         'numero' ,
         'domaine' ,
          'groupe_sanguin' ,
@@ -24,7 +25,7 @@ class Profilstagiaires extends Model
         'users_id',
     ];
 
-    protected $primaryKey= 'idProfilstagiaires';
+    protected $primaryKey= 'id';
 
     public function users(){
         return $this->belongsTo (User::class, 'users_id');

@@ -22,6 +22,7 @@
                         <tr>
                             <th>id</th>
                             <th>Nom</th>
+                            <th>Date_naissance</th>
                             <th>Numéro</th>
                             <th>Domaine</th>
                             <th>Groupe_sanguin</th>
@@ -32,7 +33,6 @@
                             <th>Numero_Pere</th>
                             <th>Numero_Mere</th>
                             <th>Numéro_urgence</th>
-                            <th>users_id</th>
                              <th>Actions</th>
                         </tr>
                     </thead>
@@ -41,6 +41,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $profil->nom }}</td>
+                                <td>{{ $profil->date_naissance }}</td>
                                 <td>{{ $profil->numero }}</td>
                                 <td>{{ $profil->domaine }}</td>
                                 <td>{{ $profil->groupe_sanguin }}</td>
@@ -51,7 +52,7 @@
                                 <td>{{ $profil->numero_pere }}</td>
                                 <td>{{ $profil->numero_mere }}</td>
                                 <td>{{ $profil->numero_urgence }}</td>
-                                <td>{{ $profil->users_id }}</td>
+
                                 <td>
                                     <div class="btn-group"><a href="{{ route('chef_service.profilEdit', ['id'=>$profil->id]) }}" class="btn btn-primary btn-sm">Modifier </a>
 

@@ -14,7 +14,17 @@ class Chefservice extends Model
         'nom',
         'numero',
         'domaine',
+        'date_debut',
+        'date_fin',
+        'date_additionnelle',
         'localisation',
         'numero_urgence',
+        'users_id',
     ];
+    protected $primaryKey= 'id';
+
+    public function users(){
+        return $this->belongsTo (User::class, 'users_id');
+
+    }
 }

@@ -14,6 +14,7 @@ class Employe extends Model
         'nom',
         'numero',
         'domaine',
+        'date_debut',
         'localisation',
         'numero_urgence',
 
