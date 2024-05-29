@@ -1,4 +1,4 @@
-@extends('layouts.stagiaire')
+@extends('layouts.chefservice')
 
 @section('content')
     <div class="row container">
@@ -13,7 +13,7 @@
                         @method('POST')
                         <div class="mb-3">
                             <label style="font-weight: 700;" for="setting-input-1" class="form-label">Nom</label>
-                            <input style=" height:40px;"  type="text" class="form-control" id="setting-input-1" placeholder="Entrer le nom" name="nom" value="{{ old('nom') }}" required>
+                            <input style=" height:40px;"  type="text" class="form-control" id="setting-input-1" placeholder="Entrer le nom" name="name" value="{{ old('name') }}" required>
                             @error('nom')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror

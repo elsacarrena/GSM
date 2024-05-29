@@ -38,6 +38,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
 
     }
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
     protected function credentials(Request $request){
         return array_merge(
          $request->only($this->username(),'password'),
@@ -75,13 +79,13 @@ class LoginController extends Controller
                             return redirect()->route('superieur.home');
                             break;
                         case 3:
-                            return redirect()->route('chef_service.create');
+                            return redirect()->route('chef_service.chefservice-home');
                             break;
                         case 4:
-                            return redirect()->route('employe.profilForm');
+                            return redirect()->route('employe.profilform');
                             break;
                         case 5:
-                            return redirect()->route('stagiaires.profilForm');
+                            return redirect()->route('stagiaires.profilform');
                             break;
                         default:
 
@@ -96,7 +100,7 @@ class LoginController extends Controller
                             return redirect()->route('superieur.home');
                             break;
                         case 3:
-                            return redirect()->route('chefservice.home');
+                            return redirect()->route('chef_service.chefservice-home');
                             break;
                         case 4:
                             return redirect()->route('employe.home');

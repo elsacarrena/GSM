@@ -69,11 +69,11 @@
                                     <a class="dropdown-item" href="{{ route('employe.index') }}">
                                         {{ __('Liste des employés') }}
                                     </a>
-                                   
-                                    <a class="dropdown-item" href="{{ route('employe.profilForm') }}">
+
+                                    {{-- <a class="dropdown-item" href="{{ route('employe.profilForm') }}">
                                         {{ __('Ajouter une information dun employé') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('employe.profilListe') }}">
+                                    </a> --}}
+                                    <a class="dropdown-item" href="{{ route('employe.profilliste') }}">
                                         {{ __('liste_information dun employé') }}
                                     </a>
 

@@ -68,7 +68,7 @@
                                         {{ __('Ajouter un stagiaire') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('stagiaires.profilListe') }}">
+                                    <a class="dropdown-item" href="{{ route('stagiaires.profilliste') }}">
                                         {{ __('Liste des stagiaires') }}
                                     </a>
 

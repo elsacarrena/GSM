@@ -39,4 +39,5 @@ class Chefservice
             return redirect ('home')->with('error', "Vous n\'avez pas le droit de chef de service");
         }
     }
+    
 }

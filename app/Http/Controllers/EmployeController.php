@@ -37,17 +37,22 @@ class EmployeController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'nom' => 'required|string',
-         'numero' => 'required|string',
-         'domaine' => 'required|string',
-         'localisation' => 'required|string',
-         'numero_urgence' => 'required|string',
+        'nom' => 'required|string',
+        'numero' => 'required|string',
+        'domaine' => 'required|string',
+        'date_debut' => 'required|date',
+      
+        'localisation' => 'required|string',
+        'numero_urgence' => 'required|string',
      ]);
 
      Employe::create([ // Utilisation de Employes::create() pour créer un nouvel employé
          'nom' => $request->nom,
          'numero' => $request->numero,
          'domaine' => $request->domaine,
+         'date_debut' => $request->date_debut,
+
+
          'localisation' => $request->localisation,
          'numero_urgence' => $request->numero_urgence,
      ]);
@@ -64,11 +69,13 @@ class EmployeController extends Controller
  public function update(Request $request, $id)
  {
      $request->validate([
-         'nom' => 'required|string',
-         'numero' => 'required|string',
-         'domaine' => 'required|string',
-         'localisation' => 'required|string',
-         'numero_urgence' => 'required|string',
+        'nom' => 'required|string',
+        'numero' => 'required|string',
+        'domaine' => 'required|string',
+        'date_debut' => 'required|date',
+
+        'localisation' => 'required|string',
+        'numero_urgence' => 'required|string',
      ]);
 
      $employe = Employe::findOrFail($id); // Utilisation de Employes::findOrFail() pour trouver un employé par son ID
@@ -95,7 +102,7 @@ class EmployeController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
-            'date_naissance' => 'required|date-time|max:255',
+            'date_naissance' => 'required|date',
             'numero' => 'required|string|max:255',
             'domaine' => 'required|string|max:255',
             'groupe_sanguin' => 'required|string|max:255',
@@ -127,21 +134,21 @@ class EmployeController extends Controller
             'numero_urgence' => $request->numero_urgence,
             'users_id' =>$id,
         ]);
-        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
+        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire ajouté avec succès!');
     }
 
     // Fonction pour afficher la liste des profils de stagiaires
     public function profilListe()
     {
         $profils = Profilemployes::all();
-        return view('employe.profilListe', compact('profils'));
+        return view('employe.profilliste', compact('profils'));
     }
 
     // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
     public function profilEdit($id)
     {
         $profil = Profilemployes::findOrFail($id);
-        return view('employe.profilEdit', compact('profil'));
+        return view('employe.profiledit', compact('profil'));
     }
 
     // Fonction pour mettre à jour un profil de stagiaire
@@ -149,7 +156,7 @@ class EmployeController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
-            'date_naissance' => 'required|date-time|max:255',
+            'date_naissance' => 'required|date',
             'numero' => 'required|string|max:255',
             'domaine' => 'required|string|max:255',
             'groupe_sanguin' => 'required|string|max:255',
@@ -166,7 +173,7 @@ class EmployeController extends Controller
         $profil = Profilemployes::findOrFail($id);
         $profil->update($request->all());
 
-        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire mis à jour avec succès!');
+        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire mis à jour avec succès!');
     }
 
     // Fonction pour supprimer un profil de stagiaire
@@ -175,7 +182,7 @@ class EmployeController extends Controller
         $profil = Profilemployes::findOrFail($id);
         $profil->delete();
 
-        return redirect()->route('employe.profilListe')->with('success', 'Profil de stagiaire supprimé avec succès');
+        return redirect()->route('employe.profilliste')->with('success', 'Profil de stagiaire supprimé avec succès');
     }
     public function accueil(){
         return view('employe.accueil');

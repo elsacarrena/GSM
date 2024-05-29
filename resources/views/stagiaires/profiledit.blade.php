@@ -11,7 +11,10 @@
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" class="form-control" value="{{ $profil->nom }}" required>
         </div>
-
+        <div class="form-group">
+            <label for="date_naissance">Date de naissance</label>
+            <input type="date" name="date_naissance" id="date_naissance" class="form-control" value="{{ $profil->date_naissance }}" required>
+        </div>
         <div class="form-group">
             <label for="numero">Numéro</label>
             <input type="text" name="numero" id="numero" class="form-control" value="{{ $profil->numero }}" required>
@@ -35,6 +38,10 @@
         <div class="form-group">
             <label for="localisation">Localisation</label>
             <input type="text" name="localisation" id="localisation" class="form-control" value="{{ $profil->localisation }}" required>
+        </div>
+        <div class="form-group">
+            <label for="situation_matrimoniale">Situation Matrimoniale</label>
+            <input type="text" name="situation_matrimoniale" id="situation_matrimoniale" class="form-control" value="{{ $profil->situation_matrimoniale }}" required>
         </div>
 
         <div class="form-group">

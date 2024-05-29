@@ -13,6 +13,10 @@
         </div>
 
         <div class="form-group">
+            <label for="date_naissance">Date de naissance: <span class="required">*</span></label>
+            <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+        </div>
+        <div class="form-group">
             <label for="numero">Numéro</label>
             <input type="text" name="numero" id="numero" class="form-control" value="{{ $profil->numero }}" required>
         </div>
@@ -22,7 +26,7 @@
             <input type="text" name="domaine" id="domaine" class="form-control" value="{{ $profil->domaine }}" required>
         </div>
 
-        
+
 
         <div class="form-group">
             <label for="groupe_sanguin">Groupe sanguin</label>
@@ -39,6 +43,10 @@
             <input type="text" name="localisation" id="localisation" class="form-control" value="{{ $profil->localisation }}" required>
         </div>
 
+        <div class="form-group">
+            <label for="situation_matrimoniale">Situation matrimoniale: </label>
+            <input type="text" class="form-control" id="situation_matrimoniale" name="situation_matrimoniale">
+        </div>
         <div class="form-group">
             <label for="nom_pere">Nom du père</label>
             <input type="text" name="nom_pere" id="nom_pere" class="form-control" value="{{ $profil->nom_pere }}" required>

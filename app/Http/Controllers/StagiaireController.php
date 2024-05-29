@@ -41,17 +41,23 @@ class stagiaireController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'numero' => 'required',
-            'domaine' => 'required',
-            'localisation' => 'required',
-            'numero_urgence' => 'required',
+            'nom' => 'required|string',
+            'numero' => 'required|string',
+            'domaine' => 'required|string',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
+            'date_additionnelle' => 'required|date',
+            'localisation' => 'required|string',
+            'numero_urgence' => 'required|string',
         ]);
 
         Stagiaires::create([
             'nom' => $request->nom,
             'numero' => $request->numero,
             'domaine' => $request->domaine,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+            'date_additionnelle' => $request->date_additionnelle,
             'localisation' => $request->localisation,
             'numero_urgence' => $request->numero_urgence,
         ]);
@@ -72,6 +78,9 @@ class stagiaireController extends Controller
             'nom' => 'required|string',
             'numero' => 'required|string',
             'domaine' => 'required|string',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
+            'date_additionnelle' => 'required|date',
             'localisation' => 'required|string',
             'numero_urgence' => 'required|string',
         ]);
@@ -95,11 +104,11 @@ class stagiaireController extends Controller
        return view('stagiaires.profilForm');
    }
     //Fonction pour enregistrer un nouveau profil de stagiaire
-   public function storeProfil(Request $request)
+   public function profilstore(Request $request)
    {
        $request->validate([
         'nom' => 'required|string|max:255',
-        'date_naissance' => 'required|date-time|max:255',
+        'date_naissance' => 'required|date',
         'numero' => 'required|string|max:255',
         'domaine' => 'required|string|max:255',
         'groupe_sanguin' => 'required|string|max:255',
@@ -134,7 +143,7 @@ class stagiaireController extends Controller
     ]);
 
 
-       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire ajouté avec succès!');
+       return redirect()->route('stagiaires.profilliste')->with('success', 'Profil de stagiaire ajouté avec succès!');
 
    }
 
@@ -142,14 +151,14 @@ class stagiaireController extends Controller
    public function profilListe()
    {
        $profils = Profilstagiaires::all();
-       return view('stagiaires.profilListe', compact('profils'));
+       return view('stagiaires.profilliste', compact('profils'));
    }
 
    // Fonction pour afficher le formulaire de modification d'un profil de stagiaire
    public function profilEdit($id)
    {
        $profil = Profilstagiaires::findOrFail($id);
-       return view('stagiaires.profilEdit', compact('profil'));
+       return view('stagiaires.profiledit', compact('profil'));
    }
 
    // Fonction pour mettre à jour un profil de stagiaire
@@ -157,7 +166,7 @@ class stagiaireController extends Controller
    {
        $request->validate([
         'nom' => 'required|string|max:255',
-        'date_naissance' => 'required|date-time|max:255',
+        'date_naissance' => 'required|date',
         'numero' => 'required|string|max:255',
         'domaine' => 'required|string|max:255',
         'groupe_sanguin' => 'required|string|max:255',
@@ -174,7 +183,7 @@ class stagiaireController extends Controller
        $profil = Profilstagiaires::findOrFail($id);
        $profil->update($request->all());
 
-       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire mis à jour avec succès!');
+       return redirect()->route('stagiaires.profilliste')->with('success', 'Profil de stagiaire mis à jour avec succès!');
    }
    // Fonction pour supprimer un profil de stagiaire
    public function profilDestroy($id)
@@ -182,7 +191,7 @@ class stagiaireController extends Controller
        $profil = Profilstagiaires::findOrFail($id);
        $profil->delete();
 
-       return redirect()->route('stagiaires.profilListe')->with('success', 'Profil de stagiaire supprimé avec succès');
+       return redirect()->route('stagiaires.profilliste')->with('success', 'Profil de stagiaire supprimé avec succès');
    }
    public function accueil(){
     return view('stagiaires.accueil');

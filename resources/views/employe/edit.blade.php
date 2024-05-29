@@ -13,14 +13,10 @@
             <div class="form-group">
                 <label for="nom">Votre nom </label>
                 <input type="text" name="nom" id="nom" class="form-control" value="{{$employe->nom }}" required>
-
             </div>
-
-
             <div class="form-group">
                 <label for="numero"> Votre numéro </label>
                 <input type="text" name="numero" id="numero" class="form-control"  value="{{ $employe->numero}}" required>
-
             </div>
 
             <div class="form-group">
@@ -28,10 +24,17 @@
                 <input type="text" name="domaine" id="domaine" class="form-control"  value="{{$employe->domaine}}" required>
 
             </div>
+
+            <div class="form-group">
+                <label for="date_debut"> Date de prise de service </label>
+                <input type="date" name="date_debut" id="date_debut" class="form-control"  value="{{ $employe->date_debut}}" required>
+            </div>
+
+
             <div class="form-group">
                 <label for="localisation"> Votre  Localisation </label>
                 <input type="text" name="localisation" id="localisation" class="form-control" value="{{$employe->localisation}}" required>
-                
+
             </div>
 
             <div class="form-group">

@@ -5,7 +5,7 @@
 
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Liste du personnel</div>
+            <div class="card-header">Liste des collaborateurs</div>
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
@@ -24,8 +24,9 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
-                             <th>localisation</th>
-                             <th>Numéro urgence</th>
+                            <th>Date de prise de service</th>
+                            <th>localisation</th>
+                            <th>Numéro urgence</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -36,8 +37,9 @@
                                 <td>{{ $employe->nom}}</td>
                                 <td>{{ $employe->numero}}</td>
                                 <td>{{ $employe->domaine}}</td>
-                                  <td>{{ $employe->localisation}}</td>
-                                 <td>{{ $employe->numero_urgence }}</td>
+                                <td>{{ $employe->date_debut}}</td>
+                                <td>{{ $employe->localisation}}</td>
+                                <td>{{ $employe->numero_urgence }}</td>
                                 <td>
                                     <a href="{{ route('employe.edit', $employe) }}" class="btn btn-primary btn-sm">Modifier un  employe</a>
                                     <form action="{{route('employe.destroy', $employe ->id) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">

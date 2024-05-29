@@ -29,7 +29,7 @@ class Employe
             return redirect()->route('superieur.home');
         }
         if(auth()->user()->is_admin==3){
-            return redirect()->route('chefservice.home');
+            return redirect()->route('chef_service.chefservice-home');
         }
         if(auth()->user()->is_admin==5){
             return redirect()->route('stagiaires.home');

@@ -13,6 +13,9 @@ class Stagiaires extends Model
         'nom',
         'numero',
         'domaine',
+        'date_debut',
+        'date_fin',
+        'date_additionnelle',
         'localisation',
         'numero_urgence',
     ];

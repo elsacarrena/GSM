@@ -14,10 +14,16 @@ return new class extends Migration
         Schema::create('chefservices', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('numero');
             $table->string('domaine');
-            $table->string('localisation');
-            $table->string('numero_urgence');
+            $table->integer('ponctualite');
+            $table->integer('assiduite');
+            $table->integer('creativite');
+            $table->integer('engagement');
+            $table->integer('motivation');
+            $table->integer('initiative');
+            $table->integer('sociabilite');
+            $table->integer('gout_risque');
+            $table->integer('autres_appreciations');
             $table->timestamps();
         });
     }

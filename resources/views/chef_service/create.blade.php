@@ -27,6 +27,20 @@
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="date_debut">Date de prise de service: <span class="required">*</span></label>
+                        <input type="date-time" class="form-control" id="date_debut" name="date_debut" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_fin">Date de fin de service: <span class="required">*</span></label>
+                        <input type="date-time" class="form-control" id="date_fin" name="date_fin" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date_additionnelle">Date additionnelle: <span class="required">*</span></label>
+                        <input type="date-time" class="form-control" id="date_additionnelle" name="date_additionnelle" required>
+                    </div>
 
 
                     <div class="form-group">

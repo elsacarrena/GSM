@@ -1,4 +1,4 @@
-@extends('layouts.stagiaire')
+@extends('layouts.chefservice')
 
 @section('content')
 <div class="container">
@@ -22,6 +22,10 @@
                         <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
                     <div class="form-group">
+                        <label for="date_naissance">Date de naissance: <span class="required">*</span></label>
+                        <input type="date-time" class="form-control" id="date_naissance" name="date_naissance" required>
+                    </div>
+                    <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>
 
                         <input type="text" class="form-control" id="numero" name="numero" required>
@@ -31,7 +35,7 @@
 
                         <input type="text" class="form-control" id="domaine" name="domaine" required>
                     </div>
-              
+
                     <div class="form-group">
                         <label for="groupe_sanguin">Groupe sanguin: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="groupe_sanguin" name="groupe_sanguin" required>
@@ -39,6 +43,10 @@
                     <div class="form-group">
                         <label for="maladie">Maladie: <span class="required">*</span></label>
                         <input type="text" class="form-control" id="maladie" name="maladie" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="situation_matrimoniale">Situation matrimoniale: </label>
+                        <input type="text" class="form-control" id="situation_matrimoniale" name="situation_matrimoniale">
                     </div>
                     <div class="form-group">
                         <label for="localisation">Localisation: <span class="required">*</span></label>

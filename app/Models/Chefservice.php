@@ -11,10 +11,8 @@ class Chefservice extends Model
 
 
     protected $fillable = [
-        'nom',
-        'numero',
-        'domaine',
-        'localisation',
-        'numero_urgence',
+        'nom', 'domaine', 'ponctualite', 'assiduite', 
+        'creativite', 'engagement', 'motivation', 'initiative', 
+        'sociabilite', 'gout_risque', 'autres_appreciations'
     ];
 }

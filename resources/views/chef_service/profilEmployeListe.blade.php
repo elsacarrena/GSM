@@ -1,4 +1,4 @@
-@extends('layouts.employe')
+@extends('layouts.chefservice')
 
 @section('content')
 <div class="container">
@@ -22,6 +22,7 @@
                         <tr>
                             <th>id</th>
                             <th>Nom</th>
+                            <th>Date de naissance</th>
                             <th>Numéro</th>
                             <th>Domaine</th>
                             <th>Groupe sanguin</th>
@@ -40,10 +41,12 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $profil->nom }}</td>
+                                <td>{{ $profil->date_naissance }}</td>
                                 <td>{{ $profil->numero }}</td>
                                 <td>{{ $profil->domaine }}</td>
                                 <td>{{ $profil->groupe_sanguin }}</td>
                                 <td>{{ $profil->maladie }}</td>
+                                <td>{{ $profil->situation_matrimoniale }}</td>
                                 <td>{{ $profil->localisation }}</td>
                                 <td>{{ $profil->nom_pere }}</td>
                                 <td>{{ $profil->nom_mere }}</td>

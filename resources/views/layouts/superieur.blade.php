@@ -77,9 +77,9 @@
                                     <a class="dropdown-item" href="{{ route('chef_service.create') }}">
                                         {{ __('Ajouter un chef de service') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
+                                    {{-- <a class="dropdown-item" href="{{ route('chef_service.profilListe') }}">
                                         {{ __('Liste des chefs de service') }}
-                                    </a>
+                                    </a> --}}
 
 
                                     <a class="dropdown-item" href="{{ route('stagiaires.create') }}">
@@ -88,7 +88,9 @@
                                     <a class="dropdown-item" href="{{ route('stagiaires.profilListe') }}">
                                         {{ __('Liste des stagiaires') }}
                                     </a>
-
+                                    <a class="dropdown-item" href="{{ route('superieur.appreciation') }}">
+                                        {{ __('Ajouter une  appréciation') }}
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

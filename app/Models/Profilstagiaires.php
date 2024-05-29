@@ -11,11 +11,13 @@ class Profilstagiaires extends Model
 
     protected $fillable = [
         'nom',
+        'date_naissance',
         'numero' ,
         'domaine' ,
          'groupe_sanguin' ,
         'maladie' ,
         'localisation' ,
+        'situation_matrimoniale' ,
          'nom_pere' ,
          'nom_mere',
         'numero_pere' ,

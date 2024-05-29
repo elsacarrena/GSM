@@ -12,7 +12,7 @@
                 <hr>
                 <h1>Les champs avec <span class="required">*</span> sont obligatoires :</h1>
 
-                <form action="{{ route('stagiaires.profilStore') }}" method="POST">
+                <form action="{{ route('stagiaires.profilstore') }}" method="POST">
 
 
 
@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date_naissance">Date de naissance: <span class="required">*</span></label>
-                        <input type="date-time" class="form-control" id="date_naissance" name="date_naissance" required>
+                        <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
                     </div>
                     <div class="form-group">
                         <label for="numero">Numéro: <span class="required">*</span></label>
@@ -78,7 +78,7 @@
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Ajouter un profil de stagiaire</button>
-                    <a href="{{route('stagiaires.profilListe') }}" class="btn btn-danger">Revenir à la liste des profils de stagiaires</a>
+                    <a href="{{route('stagiaires.profilliste') }}" class="btn btn-danger">Revenir à la liste des profils de stagiaires</a>
                 </form>
             </div>
         </div>

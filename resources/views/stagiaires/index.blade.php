@@ -23,6 +23,9 @@
                             <th>Nom</th>
                             <th>numero</th>
                             <th>domaine</th>
+                            <th>Date de prise de service</th>
+                            <th>Date  de fin de service</th>
+                            <th>Date additionnelle</th>
                             <th>localisation</th>
                              <th>Numéro urgence</th>
                             <th>Actions</th>
@@ -35,6 +38,9 @@
                                 <td>{{ $stagiaires->nom}}</td>
                                 <td>{{ $stagiaires->numero}}</td>
                                 <td>{{ $stagiaires->domaine}}</td>
+                                <td>{{ $stagiaires->date_debut}}</td>
+                                <td>{{ $stagiaires->date_fin}}</td>
+                                <td>{{ $stagiaires->date_additionnelle}}</td>
                                  <td>{{ $stagiaires->localisation}}</td>
                                  <td>{{ $stagiaires->numero_urgence }}</td>
                                 <td>

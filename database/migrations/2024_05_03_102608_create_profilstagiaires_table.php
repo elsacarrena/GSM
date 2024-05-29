@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('nom');
             $table->string('numero');
             $table->string('domaine');
+            $table->date('date_naissance');
             $table->string('groupe_sanguin');
             $table->string('maladie');
             $table->string('localisation');
+            $table->string('situation_matrimoniale');
             $table->string('nom_pere');
             $table->string('nom_mere');
             $table->string('numero_pere');

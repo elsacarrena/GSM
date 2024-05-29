@@ -73,14 +73,17 @@
                                     <a class="dropdown-item" href="{{ route('employe.ajoutemploye') }}">
                                         {{ __('Ajouter un  employé') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('employe.profilListe') }}">
+                                    <a class="dropdown-item" href="{{ route('chef_service.profilEmployeliste') }}">
                                         {{ __('Liste des employés') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('stagiaires.ajoutstagiaire') }}">
                                         {{ __('Ajouter un  stagiaire') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('stagiaires.profilListe') }}">
+                                    <a class="dropdown-item" href="{{ route('chef_service.profilStagiairesliste') }}">
                                         {{ __('Liste des stagiaires') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('chef_service.appreciation') }}">
+                                        {{ __('Ajouter une appréciation') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

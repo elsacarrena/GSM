@@ -24,6 +24,19 @@
                 <label for="domaine"> Votre domaine de travail </label>
                 <input type="text" name="domaine" id="domaine" class="form-control"  value="{{$stagiaire->domaine}}" required>
             </div>
+
+            <div class="form-group">
+                <label for="date_debut"> Date de prise de service </label>
+                <input type="date-time" name="date_debut" id="date_debut" class="form-control"  value="{{ $stagiaire->date_debut}}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_fin"> Date de fin de service </label>
+                <input type="date-time" name="date_fin" id="date_fin" class="form-control"  value="{{ $stagiaire->date_fin}}" required>
+            </div>
+            <div class="form-group">
+                <label for="numero"> Date additionnelle </label>
+                <input type="date-time" name="date_additionnelle" id="date_additionnelle" class="form-control"  value="{{ $stagiaire->date_additionnelle}}" required>
+            </div>
             <div class="form-group">
                 <label for="localisation"> Votre  Localisation </label>
                 <input type="text" name="localisation" id="localisation" class="form-control" value="{{$stagiaire->localisation}}" required>

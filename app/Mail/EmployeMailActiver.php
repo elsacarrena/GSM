@@ -23,15 +23,24 @@ public $userName;
         $this->userName = $userName;
     }
 
-        public function build()
+    //     public function build()
+    // {
+    //     $mail = $this->markdown('mail.employeMailActiver',
+    //      ['id' => $this->id,
+    //      'nom' => $this->userName])
+    //     ->subject('Confirmation de compte');
+
+    //     return $mail;
+
+    // }
+
+    public function build()
     {
-        $mail = $this->markdown('mail.employeMailActiver',
-         ['id' => $this->id,
-         'nom' => $this->userName])
-        ->subject('Confirmation de compte');
-
-        return $mail;
-
+        return $this->view('mail.employeMailActiver')
+                    ->with([
+                        'userName' => $this->userName,
+                        'id' => $this->id,
+                    ]);
     }
 
 }

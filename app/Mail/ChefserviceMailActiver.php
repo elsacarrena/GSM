@@ -23,14 +23,32 @@ public $userName;
         $this->userName = $userName;
     }
 
-        public function build()
+   /**
+    * The build function generates an email using a markdown template for account confirmation.
+    *
+    *  `build` function is returning an email message that is built using Markdown template
+    * `mail.ChefserviceMailActiver` with the provided data `id` and `nom`. The subject of the email is
+    * set to 'Confirmation de compte'.
+    */
+    //     public function build()
+    // {
+    //     $mail = $this->markdown('mail.ChefserviceMailActiver',
+    //      ['id' => $this->id,
+    //      'nom' => $this->userName])
+    //     ->subject('Confirmation de compte');
+
+    //     return $mail;
+
+    // }
+
+
+
+    public function build()
     {
-        $mail = $this->markdown('mail.ChefserviceMailActiver',
-         ['id' => $this->id,
-         'nom' => $this->userName])
-        ->subject('Confirmation de compte');
-
-        return $mail;
-
+        return $this->view('mail.ChefserviceMailActiver')
+                    ->with([
+                        'userName' => $this->userName,
+                        'id' => $this->id,
+                    ]);
     }
 }

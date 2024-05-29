@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
-                    <a href="{{ route('stagiaires.profilForm') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
+                    <a href="{{ route('stagiaires.profilform') }}" class="btn btn-primary">Ajouter une information dun stagiaire</a>
 
                     @if (session('success'))
                         <div class="alert alert-success">
@@ -29,11 +29,12 @@
                                 <th>Groupe sanguin</th>
                                 <th>Maladie</th>
                                 <th>Localisation</th>
-                                <th>Nom_Pere</th>
-                                <th>Nom_Mere</th>
-                                <th>Numero_Pere</th>
-                                <th>Numero_Mere</th>
-                                <th>Numéro_urgence</th>
+                                <th>Situation Matrimoniale</th>
+                                <th>Nom du Pere</th>
+                                <th>Nom de Mere</th>
+                                <th>Numero du Pere</th>
+                                <th>Numero du Mere</th>
+                                <th>Numéro d'urgence</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -48,17 +49,17 @@
                                     <td>{{ $profil->domaine }}</td>
                                     <td>{{ $profil->groupe_sanguin }}</td>
                                     <td>{{ $profil->maladie }}</td>
-                                    <td>{{ $profil->situation_matrimoniale }}</td>
                                     <td>{{ $profil->localisation }}</td>
+                                    <td>{{ $profil->situation_matrimoniale }}</td>
                                     <td>{{ $profil->nom_pere }}</td>
                                     <td>{{ $profil->nom_mere }}</td>
                                     <td>{{ $profil->numero_pere }}</td>
                                     <td>{{ $profil->numero_mere }}</td>
                                     <td>{{ $profil->numero_urgence }}</td>
                                     <td>
-                                        <div class="btn-group"><a href="{{ route('stagiaires.profilEdit', ['id'=> $profil->id]) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                        <div class="btn-group"><a href="{{ route('stagiaires.profiledit', ['profil' => $profil->id]) }}" class="btn btn-primary btn-sm">Modifier</a>
 
-                                            <form action="{{ route('stagiaires.profilDestroy', ['id'=> $profil->id]) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
+                                            <form action="{{ route('stagiaires.profildestroy', ['profil' => $profil->id]) }}" method="POST" style="display: inline;" onsubmit="return confirmDelete()">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>

@@ -1,11 +1,11 @@
-@extends('layouts.employe')
+@extends('layouts.chefservice')
 
 @section('content')
 <div class="container">
 
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Liste du personnel</div>
+            <div class="card-header">Liste des collaborateurs</div>
 
             <div class="card-body">
                 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
